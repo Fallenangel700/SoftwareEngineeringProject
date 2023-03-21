@@ -1,10 +1,11 @@
 package scheduler;
 
-public class Reminder {
-
+public class Reminder
+{
 	private int reminderTime;
 	
-	public Reminder() {
+	public Reminder()
+	{
 		this.reminderTime=-1;
 	}
 	
@@ -12,6 +13,7 @@ public class Reminder {
 	{
 		this.reminderTime=reminderTime;
 	}
+
 	public int getReminderTime()
 	{
 		return this.reminderTime;
