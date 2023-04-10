@@ -9,7 +9,7 @@ public class Profile {
 	private String userName;
 	private String password; 
 	
-	public Profile(String name; String pass)
+	public Profile(String name, String pass)
 	{
 		this.myCalendar = new Calendar();
 		this.lists = new LinkedList <List>();
