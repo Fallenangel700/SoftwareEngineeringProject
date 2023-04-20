@@ -26,6 +26,7 @@ public class Profile {
 	{
 		return this.userName;
 	}
+
 	public bool checkPass(input pass)
 	{
 		return this.password == pass;

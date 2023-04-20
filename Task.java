@@ -15,7 +15,8 @@ public class Task
 	
 	public Task(String newTaskName, String newDetails)
 	{
-		Task(newTaskName);
+		//Task(newTaskName); Is there a reason to create a task in the task constructor?
+		this.taskName=newTaskName;
 		this.details=newDetails;
 	}
 	
@@ -36,6 +37,10 @@ public class Task
 	
 	public String getDetails()
 	{
+		if(this.details ==null)
+		{
+			return "No details entered for Task";
+		}
 		return this.details;
 	}
 }
