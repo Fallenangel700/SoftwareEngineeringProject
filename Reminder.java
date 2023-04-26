@@ -11,7 +11,10 @@ public class Reminder
 	
 	public void setReminderTime(int reminderTime)
 	{
-		this.reminderTime=reminderTime;
+		if(reminderTime>= 0000 || reminderTime<2400)
+			this.reminderTime=reminderTime;
+		else
+			System.out.println("ERROR: Invalid time entered.");
 	}
 
 	public int getReminderTime()
