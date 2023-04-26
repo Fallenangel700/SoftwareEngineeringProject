@@ -34,12 +34,12 @@ public class List {
 		targetTask = input.nextInt();
 		
 		System.out.println("Please input new task name: ");
-		this.listedTasks.get(targetTask).changeName(input.nextLine());
+		this.listedTasks.get(targetTask).setName(input.nextLine());
 		
 		
 		
 		System.out.println("Please input new task details: ");
-		this.listedTasks.get(targetTask).changeDetails(input.nextLine());
+		this.listedTasks.get(targetTask).setDetails(input.nextLine());
 		
 		System.out.println("Task has been updated to: Name: " + this.listedTasks.get(targetTask).getName() + " Details: " + this.listedTasks.get(targetTask).getDetails());
 		input.close();
