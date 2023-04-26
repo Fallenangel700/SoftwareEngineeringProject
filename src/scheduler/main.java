@@ -11,10 +11,14 @@ public class main {
 		Controller theControl = new Controller();
 		int input=0;
 		String choice;
+		String name;
+		String desc;
+		String start;
+		String end;
 
 		//TODO sign user into profile
 
-		
+		//DDMM24HR
 		while(input != 6)
 		{
 			System.out.println("Please pick one of the following: \n");
@@ -25,7 +29,7 @@ public class main {
 			System.out.println("3: Create new To-Do List");
 			System.out.println("4: Add Task to To-Do List");
 
-			System.out.println("5: Discharge patient");
+			System.out.println("5:");
 			System.out.println("6 Exit");
 
 			////////////////////////////////////////////////////////////////////
@@ -57,7 +61,7 @@ public class main {
 				{
 					input = -1;
 				}
-				if (input < 1 || input > 5)
+				if (input < 1 || input > 6)
 				{
 					input = -1;
 				}			
@@ -69,12 +73,14 @@ public class main {
 			//Admit a patient
 			if(input == 1)
 			{
-//				System.out.println("Please enter patient first name: ");
-//				fNameInput = keyboard.next();
-//				System.out.println("Please enter patient last name: ");
-//				lNameInput = keyboard.next();
-//				System.out.println("Please enter patient age: ");
-//				choice = keyboard.next();
+				System.out.println("Enter event name: ");
+				name = keyboard.nextLine();
+				System.out.println("Enter event start time: ");
+				start = keyboard.nextLine();
+				System.out.println("Enter event end time: ");
+				end = keyboard.nextLine();
+				
+				theControl.addEvent(name, start, end);
 			}
 			
 			////////////////////////////////////////////////////////////////////

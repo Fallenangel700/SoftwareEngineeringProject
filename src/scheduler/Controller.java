@@ -12,7 +12,15 @@ public class Controller
 	{
 		
 	}
-	
+
+
+	/**
+	 * @return the theUser
+	 */
+	public Profile getTheUser() {
+		return theUser;
+	}
+
 	
 	
 	//theUser.getCalender().addEvent(eventName, eventStart, eventEnd);
