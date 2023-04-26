@@ -13,15 +13,18 @@ public class main {
 		String choice;
 
 		//TODO sign user into profile
+
 		
 		while(input != 6)
 		{
 			System.out.println("Please pick one of the following: \n");
 
+
 			System.out.println("1: View Calender");
 			System.out.println("2: Add Event to Calender");
 			System.out.println("3: Create new To-Do List");
 			System.out.println("4: Add Task to To-Do List");
+
 			System.out.println("5: Discharge patient");
 			System.out.println("6 Exit");
 
