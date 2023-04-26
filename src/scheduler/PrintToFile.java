@@ -5,10 +5,10 @@ package scheduler;
 
 public class PrintToFile
 {
-    Calender calPrint;
+    Calendar calPrint;
     List listPrint; // Should we do an array of lists so that we can print multiple lists?
 
-    public PrintToFile(Calender myCal)
+    public PrintToFile(Calendar myCal)
     {
         calPrint = myCal;
         listPrint = null;
@@ -20,7 +20,7 @@ public class PrintToFile
         listPrint = myList;
     }
 
-    public PrintToFile(Calender myCal, List myList)
+    public PrintToFile(Calendar myCal, List myList)
     {
         calPrint = myCal;
         listPrint = myList;

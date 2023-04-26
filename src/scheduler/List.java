@@ -49,7 +49,7 @@ public class List {
 	public void display() {
 		
 		for(int x = 0; x < listedTasks.size(); x ++)
-			System.out.println( x + ": " + listedTask.get(x).getName() + ": " + listedTask.get(x).getDetails());
+			System.out.println( x + ": " + listedTasks.get(x).getName() + ": " + listedTasks.get(x).getDetails());
 		
 	}
 }
