@@ -10,13 +10,13 @@ public class Task
 	
 	public Task(String newTaskName)
 	{
-		this.taskName=newTaskName;
+		this.taskName = newTaskName;
 	}
 	
 	public Task(String newTaskName, String newDetails)
 	{
-		Task(newTaskName);
-		this.details=newDetails;
+		this.taskName = newTaskName;
+		this.details = newDetails;
 	}
 	
 	public void changeName(String newTaskName)
