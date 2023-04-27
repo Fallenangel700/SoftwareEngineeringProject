@@ -12,13 +12,20 @@ public class main {
 		int input=0;
 		String choice;
 		String name;
-		String desc;
+		String name2;
 		String start;
 		String end;
 
-		//TODO sign user into profile
-
-		//DDMM24HR
+		//TODO let user make accounts
+		while(theControl.getTheUser() == null)
+		{
+			System.out.println("Please enter username: ");
+			name = keyboard.nextLine();
+			System.out.println("Please enter password: ");
+			name2 = keyboard.nextLine();
+			theControl.signIn(name, name2);			
+		}
+		
 		while(input != 6)
 		{
 			System.out.println("Please pick one of the following: \n");
@@ -28,9 +35,7 @@ public class main {
 			System.out.println("2: Add Event to Calender");
 			System.out.println("3: Create new To-Do List");
 			System.out.println("4: Add Task to To-Do List");
-
-			System.out.println("5:");
-			System.out.println("6 Exit");
+			System.out.println("5: Exit");
 
 			////////////////////////////////////////////////////////////////////
 			//Get and validate input
@@ -70,46 +75,64 @@ public class main {
 			System.out.print("\n");
 			
 			////////////////////////////////////////////////////////////////////
-			//Admit a patient
+			//View Calender
 			if(input == 1)
 			{
+				System.out.println("Displaying Calender. ");
+				theControl.displayCalender();
+			}
+			
+			////////////////////////////////////////////////////////////////////
+			//Add Event
+			else if(input == 2)
+			{
+				System.out.println("Adding New Event to Calender. ");
 				System.out.println("Enter event name: ");
 				name = keyboard.nextLine();
-				System.out.println("Enter event start time: ");
+				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Enter event start time in: ");
 				start = keyboard.nextLine();
 				System.out.println("Enter event end time: ");
 				end = keyboard.nextLine();
 				
 				theControl.addEvent(name, start, end);
 			}
-			
 			////////////////////////////////////////////////////////////////////
-			else if(input == 2)
-			{
-
-			}
-			
-			
-			////////////////////////////////////////////////////////////////////
+			//Display the TO-DO lists
 			else if(input == 3)
 			{
-			}
-
+				System.out.println("Displaying To-Do Lists. ");
+				
+				theControl.displayLists();
+			}			
 			
 			////////////////////////////////////////////////////////////////////
+			//Create new TO-DO list
 			else if(input == 4)
 			{
+				System.out.println("Making a new To-Do Lists. ");
+				System.out.println("Enter new List name: ");
+				name = keyboard.nextLine();
+				
+				theControl.createList(name);
 			}
 			////////////////////////////////////////////////////////////////////
+			//Add task to TO-DO list
 			else if(input == 5)
 			{
+				System.out.println("Adding New Task to a To-Do List. ");
+				System.out.println("Enter List name: ");
+				name = keyboard.nextLine();
+				System.out.println("Enter Task name: ");
+				name2 = keyboard.nextLine();				
+				theControl.addTask(name, name2);
 			}
 			////////////////////////////////////////////////////////////////////
-			// Exit Program
 			else if(input == 6)
 			{
 				//nothing, this ends the program.
 			}
+			////////////////////////////////////////////////////////////////////
 		}
 		System.out.println("Goodbye!");
 		keyboard.close();
