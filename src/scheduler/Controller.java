@@ -1,7 +1,4 @@
 package scheduler;
-/* 
- * 
- */
 
 public class Controller 
 {
@@ -21,7 +18,7 @@ public class Controller
 		return theUser;
 	}
 
-	
-	
-	//theUser.getCalender().addEvent(eventName, eventStart, eventEnd);
+	public void addEvent(String name, String start, String end) {
+		// Enter code here...
+	}
 }

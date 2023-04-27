@@ -19,12 +19,12 @@ public class Task
 		this.details = newDetails;
 	}
 	
-	public void changeName(String newTaskName)
+	public void setName(String newTaskName)
 	{
 		this.taskName = newTaskName;
 	}
 	
-	public void changeDetails(String newDetails)
+	public void setDetails(String newDetails)
 	{
 		this.details=newDetails;
 	}

@@ -1,5 +1,5 @@
 package scheduler;
-/* 
+/** 
  * Core of the scheduler program. Building block for the Reminder and Calendar class.
  * @author Grant Anderson 
  */
