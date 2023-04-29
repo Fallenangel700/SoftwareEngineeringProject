@@ -41,6 +41,16 @@ public class Controller
 		theUser.getMyCalender().addEvent(name, start, end);
 	}
 	
+	public void editEvent(String oldName, String newName, String start, String end)
+	{
+		theUser.getMyCalender().editEvent(oldName, newName, start, end);
+	}
+	
+	public void removeEvent(String name)
+	{
+		theUser.getMyCalender().removeEvent(name);
+	}
+	
 	public void displayLists()
 	{
 		for(int x = 0; x < theUser.getLists().length; x++)
@@ -52,16 +62,30 @@ public class Controller
 	public void createList(String listName)
 	{
 
-		List temp = new List(listName);
-		//not sure on the syntax of this line
-		theUser.getLists()[theUser.getLists().length] = temp;
+		theUser.addList(listName);
+	}
+	
+	public void deleteList(String listName) {
+		theUser.deleteList(name);
 	}
 	
 	public void addTask(String listName, String taskName)
 	{
 		theUser.addTask(listName, taskName);
 	}
+	public void removeTask(String listName, String taskName)
+	{
+		theUser.removeTask(listName, taskName);
+	}
+	public void setReminder(String eventName)
+	{
+		theUser.getMyCalender().setReminder();
+	}
 	
+	public void printToFile()
+	{
+		theUser.getMyCalender().printToFile();
+	}
 	
 	
 	
