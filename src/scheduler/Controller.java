@@ -7,10 +7,17 @@ public class Controller
 {
 	private Profile theUser = null;
 	private Profile[] accounts;
+	private int numAccounts;
 	
 	public Controller()
 	{
-		
+		accounts = new Profile[0];
+		numAccounts = 0;
+	}
+
+	public void setTheUser(Profile user)
+	{
+		theUser = user;
 	}
 
 	public Profile getTheUser() 
@@ -18,7 +25,7 @@ public class Controller
 		return theUser;
 	}
 	
-	public void signIn(String username, String password)
+	public boolean signIn(String username, String password)
 	{
 		boolean match = false;
 		for(int x = 0; x < accounts.length; x++)
@@ -26,9 +33,26 @@ public class Controller
 			if(accounts[x].getName() == username && accounts[x].checkPass(password))
 			{
 				match = true;
-				System.out.println("Username or password is incorrect. Please try again. ");
+				setTheUser(accounts[x]);
 			}
 		}
+		if(match == false)
+		{
+			System.out.println("Username or Password is incorrect.");
+		}
+		return match;
+	}
+
+	public void addNewProfile(String username, String password)
+	{
+		Profile newProfile = new Profile(username, password);
+		Profile newAccounts[] = new Profile[numAccounts+1];
+		for(int i = 0; i < numAccounts; i++)
+			newAccounts[i] = accounts[i];
+		newAccounts[numAccounts+1] = newProfile;
+		numAccounts++;
+		accounts = newAccounts;
+		theUser = newProfile;
 	}
 	
 	public void displayCalender()

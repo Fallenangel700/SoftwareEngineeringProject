@@ -16,14 +16,72 @@ public class main {
 		String start;
 		String end;
 
-		//TODO let user make accounts
 		while(theControl.getTheUser() == null)
 		{
-			System.out.println("Please enter username: ");
-			name = keyboard.nextLine();
-			System.out.println("Please enter password: ");
-			name2 = keyboard.nextLine();
-			theControl.signIn(name, name2);			
+			System.out.println("Please pick one of the following: \n");
+			System.out.println("1: Sign In");
+			System.out.println("2: Create New Profile");
+			System.out.println("3: Exit");
+			choice = keyboard.next();
+			try
+			{
+				input = Integer.parseInt(choice);
+			}
+			catch (NumberFormatException e)
+			{
+				input = -1;
+			}
+			if (input < 1)
+			{
+				input = -1;
+			}
+			//if invalid, start while loop
+			while (input == -1)
+			{
+				System.out.println("\nThat is not a valid choice. Please try again.");
+				System.out.print("Enter a number between 1 and 3 :");
+				choice = keyboard.next();
+				try
+				{
+					input = Integer.parseInt(choice);
+				}
+				catch (NumberFormatException e)
+				{
+					input = -1;
+				}
+				if (input < 1 || input > 6)
+				{
+					input = -1;
+				}			
+			}
+
+			if(input == 1)
+			{
+				boolean isLoggedIn = false;
+				while(isLoggedIn == false)
+				{
+					System.out.println("Please enter username: ");
+					name = keyboard.nextLine();
+					System.out.println("Please enter password: ");
+					name2 = keyboard.nextLine();
+					isLoggedIn = theControl.signIn(name, name2);
+				}
+			}
+			if(input == 2)
+			{
+				System.out.println("Please enter username: ");
+				name = keyboard.nextLine();
+				System.out.println("Please enter password: ");
+				name2 = keyboard.nextLine();
+				theControl.addNewProfile(name, name2);
+			}
+			if(input == 3)
+			{
+				System.out.println("Goodbye!");
+				keyboard.close();
+				System.exit(0);
+			}
+						
 		}
 		
 		while(input != 6)
