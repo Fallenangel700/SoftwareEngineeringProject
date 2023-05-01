@@ -30,4 +30,11 @@ public class Profile {
 	{
 		return this.password == pass;
 	}
+	
+	public LinkedList<List> getLists()
+	{
+		return lists;
+	}
+
 }
+

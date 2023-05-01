@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class List {
 	
 	LinkedList <Task> listedTasks;
-	
+	private String listName;
 	public List()
 	{
 		this.listedTasks = new LinkedList <Task>();
@@ -51,5 +51,13 @@ public class List {
 		for(int x = 0; x < listedTasks.size(); x ++)
 			System.out.println( x + ": " + listedTasks.get(x).getName() + ": " + listedTasks.get(x).getDetails());
 		
+	}
+
+	public String getListName() {
+		return listName;
+	}
+
+	public void setListName(String listName) {
+		this.listName = listName;
 	}
 }

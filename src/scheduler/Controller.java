@@ -77,29 +77,91 @@ public class Controller
 	
 	public void displayLists()
 	{
-		for(int x = 0; x < theUser.getLists().length; x++)
-		{
-			theUser.getLists().display();
-		}
+		//for(int x = 0; x < theUser.getLists().length; x++)
+		//{
+			theUser.getLists().toString();
+		//}
 	}
 	
 	public void createList(String listName)
 	{
-
-		theUser.addList(listName);
+		List temp = new List();
+		theUser.getLists().push(temp);
 	}
 	
 	public void deleteList(String listName) {
-		theUser.deleteList(name);
+		int match = -1; 
+		for(int x = 0; x < theUser.getLists().size(); x++)
+		{
+			if(theUser.getLists().get(x).getListName().equalsIgnoreCase(listName))
+			{
+				match = x;
+				break;
+			}
+		}
+		if(match != -1)
+		{
+			theUser.getLists().remove(match);
+		}
+		else
+			System.out.println("List not found.");
 	}
 	
 	public void addTask(String listName, String taskName)
 	{
-		theUser.addTask(listName, taskName);
+		int match = -1; 
+		for(int x = 0; x < theUser.getLists().size(); x++)
+		{
+			if(theUser.getLists().get(x).getListName().equalsIgnoreCase(listName))
+			{
+				match = x;
+				break;
+			}
+		}
+		if(match != -1)
+		{
+			Task temp = new Task(taskName);
+			theUser.getLists().get(match).addTask(temp);
+		}
+		else
+			System.out.println("List not found.");
 	}
 	public void removeTask(String listName, String taskName)
 	{
-		theUser.removeTask(listName, taskName);
+		int match = -1; 
+		for(int x = 0; x < theUser.getLists().size(); x++)
+		{
+			if(theUser.getLists().get(x).getListName().equalsIgnoreCase(listName))
+			{
+				match = x;
+				break;
+			}
+		}
+		if(match != -1)
+		{
+			Task temp = new Task(taskName);
+			theUser.getLists().get(match).removeTask(temp);
+		}
+		else
+			System.out.println("List not found.");
+	}
+	public void editTask(String listName)
+	{
+		int match = -1; 
+		for(int x = 0; x < theUser.getLists().size(); x++)
+		{
+			if(theUser.getLists().get(x).getListName().equalsIgnoreCase(listName))
+			{
+				match = x;
+				break;
+			}
+		}
+		if(match != -1)
+		{
+			theUser.getLists().get(match).editTask();
+		}
+		else
+			System.out.println("List not found.");
 	}
 	public void setReminder(String eventName)
 	{

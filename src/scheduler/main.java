@@ -132,7 +132,7 @@ public class main {
 				{
 					input = -1;
 				}
-				if (input < 1 || input > 6)
+				if (input < 1 || input > 12)
 				{
 					input = -1;
 				}			
