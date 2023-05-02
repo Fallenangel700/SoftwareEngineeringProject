@@ -26,9 +26,25 @@ public class Profile {
 	{
 		return this.userName;
 	}
-
-	public bool checkPass(input pass)
+	public boolean checkPass(String pass)
 	{
 		return this.password == pass;
 	}
+
+	public void setName(String name)
+	{
+		this.userName = name;
+	}
+
+	public void setPass(String pass)
+	{
+		this.password = pass;
+	}	
+	
+	public LinkedList<List> getLists()
+	{
+		return lists;
+	}
+
 }
+

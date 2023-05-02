@@ -50,6 +50,7 @@ public class Event
 		}
 		else if(validateReminderTime(reminderTime)==true)
 		{
+			//should we not validate reminder time everytime?
 			this.eventReminder.setReminderTime(reminderTime);
 		}
 	}
