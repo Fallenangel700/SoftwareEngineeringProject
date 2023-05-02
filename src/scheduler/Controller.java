@@ -2,17 +2,16 @@ package scheduler;
 /* 
  * 
  */
+import java.util.Scanner;
 
 public class Controller 
 {
 	private Profile theUser = null;
 	private Profile[] accounts;
-	private int numAccounts;
 	
 	public Controller()
 	{
 		accounts = new Profile[0];
-		numAccounts = 0;
 	}
 
 	public void setTheUser(Profile user)
@@ -46,11 +45,10 @@ public class Controller
 	public void addNewProfile(String username, String password)
 	{
 		Profile newProfile = new Profile(username, password);
-		Profile newAccounts[] = new Profile[numAccounts+1];
-		for(int i = 0; i < numAccounts; i++)
+		Profile newAccounts[] = new Profile[accounts.length+1];
+		for(int i = 0; i < accounts.length; i++)
 			newAccounts[i] = accounts[i];
-		newAccounts[numAccounts+1] = newProfile;
-		numAccounts++;
+		newAccounts[accounts.length+1] = newProfile;
 		accounts = newAccounts;
 		theUser = newProfile;
 	}
@@ -173,15 +171,124 @@ public class Controller
 		theUser.getMyCalender().printToFile();
 	}
 	
+	public void editProfile()
+	{
+		Scanner keyboard = new Scanner(System.in);
+		String newUsername;
+		String newPassword;
+		boolean finished;
+		String input;
+		System.out.println("Would you like to change your username? (yes/no)");
+		input = keyboard.nextLine();
+		while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+		{
+			System.out.println("Input invalid. Please enter yes or no");
+			System.out.println("Would you like to change your username? (yes/no)");
+			input = keyboard.nextLine();
+		}
+		if(input == "yes" || input == "Yes")
+		{
+			finished = false;
+			while(finished == false)
+			{
+				System.out.print("Enter your new username: ");
+				newUsername = keyboard.nextLine();
+				System.out.println("Is the username "+ newUsername + "correct?");
+				input = keyboard.nextLine();
+				while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+				{
+					System.out.println("Input invalid. Please enter yes or no");
+					System.out.println("Is the username "+ newUsername + "correct?");
+					input = keyboard.nextLine();
+				}
+				if(input == "yes" || input == "Yes")
+				{
+					finished = true;
+					theUser.setName(newUsername);
+				}
+			}
+		}
+		System.out.println("Would you like to change your password? (yes/no)");
+		input = keyboard.nextLine();
+		while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+		{
+			System.out.println("Input invalid. Please enter yes or no");
+			System.out.println("Would you like to change your password? (yes/no)");
+			input = keyboard.nextLine();
+		}
+		if(input == "yes" || input == "Yes")
+		{
+			finished = false;
+			while(finished == false)
+			{
+				System.out.print("Enter your new password: ");
+				newPassword = keyboard.nextLine();
+				System.out.println("Is the password "+ newPassword + "correct?");
+				input = keyboard.nextLine();
+				while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+				{
+					System.out.println("Input invalid. Please enter yes or no");
+					System.out.println("Is the password "+ newPassword + "correct?");
+					input = keyboard.nextLine();
+				}
+				if(input == "yes" || input == "Yes")
+				{
+					finished = true;
+					theUser.setPass(newPassword);
+				}
+			}
+		}
+		keyboard.close();
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void deleteProfile()
+	{
+		Scanner keyboard = new Scanner(System.in);
+		String input;
+		String password;
+		boolean passCheck;
+		int failedAttempts = 0;
+		System.out.println("Are you sure you want to delete your profile? (yes/no)");
+		input = keyboard.nextLine();
+		while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+		{
+			System.out.println("Input invalid. Please enter yes or no");
+			System.out.println("Are you sure you want to delete your profile? (yes/no)");
+			input = keyboard.nextLine();
+		}
+		if(input == "Yes" || input == "yes")
+		{
+			System.out.println("Please enter your password: ");
+			password = keyboard.nextLine();
+			passCheck = theUser.checkPass(password);
+			while(passCheck == false && failedAttempts > 3)
+			{
+				failedAttempts++;
+				System.out.println("Password incorrect.");
+				System.out.println("Please enter your password: ");
+				password = keyboard.nextLine();
+				passCheck = theUser.checkPass(password);
+			}
+			if(failedAttempts == 3)
+			{
+				System.out.println("Too many failed Attempts.");
+				System.out.println("Exiting Now.");
+			}
+			else
+			{
+				Profile[] newAccounts = new Profile[accounts.length - 1];
+				for(int i = 0, k =0; i <accounts.length;i++)
+				{
+					if(accounts[i] != theUser)
+					{
+						newAccounts[k] = accounts[i];
+						k++;
+					}
+				}
+				System.out.println("Profile Deleted.");
+			}
+		}
+		keyboard.close();
+	}
 	
 }

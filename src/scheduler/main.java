@@ -100,8 +100,10 @@ public class main {
 			System.out.println("9: Remove Task from To-Do List");
 			System.out.println("10: Set Reminder for Event");
 			System.out.println("11: Print Calender to file");
+			System.out.println("12: Edit Profile");
+			System.out.println("13: Delete Profile");
 
-			System.out.println("12: Exit");
+			System.out.println("14: Exit");
 
 			////////////////////////////////////////////////////////////////////
 			//Get and validate input
@@ -122,7 +124,7 @@ public class main {
 			while (input == -1)
 			{
 				System.out.println("\nThat is not a valid choice. Please try again.");
-				System.out.print("Enter a number between 1 and 6 :");
+				System.out.print("Enter a number between 1 and 13 :");
 				choice = keyboard.next();
 				try
 				{
@@ -261,6 +263,17 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			else if(input == 12)
+			{
+				System.out.println("Editing Profile. ");
+				theControl.editProfile();
+			}
+			////////////////////////////////////////////////////////////////////
+			else if(input == 13)
+			{
+				theControl.deleteProfile();
+			}
+			////////////////////////////////////////////////////////////////////
+			else if(input == 14)
 			{
 				//nothing, this ends the program.
 			}
