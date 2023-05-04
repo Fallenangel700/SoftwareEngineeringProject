@@ -34,4 +34,9 @@ public class Calendar {
 		}
 	}
 
+	// public void addEvent(Day day, String name, String start, String end)
+
+	// public void editEvent(Day day, oldName, newName, start, end)
+
+	// public void removeEvent(Day day, name)
 }

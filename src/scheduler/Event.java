@@ -43,14 +43,13 @@ public class Event
 	
 	public void setReminderTime(int reminderTime)
 	{
-		if(this.eventReminder==null)
+		if(this.eventReminder==null && validateReminderTime(reminderTime)==true)
 		{
 			this.eventReminder= new Reminder();
 			this.eventReminder.setReminderTime(reminderTime);
 		}
 		else if(validateReminderTime(reminderTime)==true)
 		{
-			//should we not validate reminder time everytime?
 			this.eventReminder.setReminderTime(reminderTime);
 		}
 	}
