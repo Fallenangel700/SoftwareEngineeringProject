@@ -12,6 +12,11 @@ public class List {
 	{
 		this.listedTasks = new LinkedList <Task>();
 	}
+
+	public int getSize()
+	{
+		return listedTasks.size();
+	}
 	
 	public void addTask(Task newTask)
 	{
@@ -50,7 +55,6 @@ public class List {
 		
 		for(int x = 0; x < listedTasks.size(); x ++)
 			System.out.println( x + ": " + listedTasks.get(x).getName() + ": " + listedTasks.get(x).getDetails());
-		
 	}
 
 	public String getListName() {
@@ -59,5 +63,10 @@ public class List {
 
 	public void setListName(String listName) {
 		this.listName = listName;
+	}
+
+	public Task getTask(int taskNum)
+	{
+		return this.listedTasks.get(taskNum);
 	}
 }

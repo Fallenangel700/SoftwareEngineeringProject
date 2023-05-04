@@ -86,6 +86,70 @@ public class Controller
 		List temp = new List();
 		theUser.getLists().push(temp);
 	}
+
+	public void editList(String listName)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		String newListName;
+		String input;
+		boolean finished = false;
+		int match = -1; 
+		for(int x = 0; x < theUser.getLists().size(); x++)
+		{
+			if(theUser.getLists().get(x).getListName().equalsIgnoreCase(listName))
+			{
+				match = x;
+				break;
+			}
+		}
+		if(match != -1)
+		{
+			System.out.println("Would you like to change your list name? (yes/no)");
+			input = keyboard.nextLine();
+			while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+			{
+				System.out.println("Input invalid. Please enter yes or no");
+				System.out.println("Would you like to change your list name? (yes/no)");
+				input = keyboard.nextLine();
+			}
+			if(input == "yes" || input == "Yes")
+			{
+				System.out.println("Please enter the new list name: ");
+				newListName = keyboard.nextLine();
+				theUser.getLists().get(match).setListName(newListName);
+			}
+			while(finished == false)
+			{
+				System.out.println("Would you like to delete a task? (yes/no)");
+				input = keyboard.nextLine();
+				while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+				{
+					System.out.println("Input invalid. Please enter yes or no");
+					System.out.println("Would you like to delete a task? (yes/no)");
+					input = keyboard.nextLine();
+				}
+				if(input == "yes" || input == "Yes")
+				{
+					int taskNum;
+					theUser.getLists().get(match).display();
+					System.out.print("Enter task number to delete: ");
+					taskNum = keyboard.nextInt();
+					while(taskNum > theUser.getLists().get(match).getSize())
+					{
+						System.out.print("Input invalid. Please enter a task number to delete: ");
+						input = keyboard.nextLine();
+					}
+					theUser.getLists().get(match).removeTask(theUser.getLists().get(match).getTask(taskNum));
+				}
+				else
+					finished = true;
+			}
+		}
+		else
+			System.out.println("List not found.");
+
+		keyboard.close();
+	}
 	
 	public void deleteList(String listName) {
 		int match = -1; 
@@ -241,7 +305,7 @@ public class Controller
 		keyboard.close();
 	}
 	
-	public void deleteProfile()
+	public boolean deleteProfile()
 	{
 		Scanner keyboard = new Scanner(System.in);
 		String input;
@@ -273,6 +337,8 @@ public class Controller
 			{
 				System.out.println("Too many failed Attempts.");
 				System.out.println("Exiting Now.");
+				keyboard.close();
+				return false;
 			}
 			else
 			{
@@ -286,9 +352,16 @@ public class Controller
 					}
 				}
 				System.out.println("Profile Deleted.");
+				keyboard.close();
+				return true;
 			}
 		}
-		keyboard.close();
+		else
+		{
+			keyboard.close();
+			return false;
+		}
+			
 	}
 	
 }
