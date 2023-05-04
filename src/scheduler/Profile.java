@@ -46,5 +46,9 @@ public class Profile {
 		return lists;
 	}
 
+	public Calendar getMyCalender()
+	{
+		return myCalendar;
+	}
 }
 
