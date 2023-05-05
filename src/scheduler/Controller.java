@@ -305,9 +305,9 @@ public class Controller
 		theUser.getMyCalender().addReminder(start, end, time);
 	}
 
-	public void setReminder(String start, String end, String newTime)
+	public void editReminder(String start, String end, String newTime)
 	{
-		//theUser.getMyCalender().setReminder();
+		theUser.getMyCalender().editReminder(start, end, newTime);
 	}
 
 	public void removeReminder(String start, String end){

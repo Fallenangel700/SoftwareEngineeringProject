@@ -190,11 +190,11 @@ public class Calendar {
 		curr.addReminder(start, end, time);
 	}
 
-	public void setReminder(String start, String end, String time){
+	public void editReminder(String start, String end, String time){
 		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
 		String dayKey=key.substring(0,4);
 		Day curr = calendar.get(dayKey);
-		curr.addReminder();
+		curr.editReminder(start, end, time);
 
 	}
 

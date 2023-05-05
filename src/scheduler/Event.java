@@ -19,6 +19,7 @@ public class Event
 		this.startTime=startTime;
 		this.endTime=endTime;
 		this.eventName=eventName;	
+		this.eventReminder = new Reminder();
 	}
 	
 	
@@ -52,21 +53,18 @@ public class Event
 		{
 			System.out.println("ERROR: Pre-existing reminder for this event.");
 		}
-		this.eventReminder.setReminderTime(Integer.parseInt(reminderTime));
+		eventReminder.setReminderTime(Integer.parseInt(reminderTime));
 		
 	}
 
-	public void setReminderTime(String reminderTime)
+	public void editReminderTime(String reminderTime)
 	{
 		if(this.eventReminder==null)
 		{
-			this.eventReminder= new Reminder();
-			this.eventReminder.setReminderTime(reminderTime);
+			System.out.println("Error: Non-existant remider's cannot be edited.");
+			return;
 		}
-		else 
-		{
-			this.eventReminder.setReminderTime(reminderTime);
-		}
+		this.eventReminder.setReminderTime(Integer.parseInt(reminderTime));
 	}
 	
 	public String getStartTime()
