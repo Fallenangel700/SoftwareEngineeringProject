@@ -55,7 +55,81 @@ public class Controller
 	
 	public void displayCalender()
 	{
-		theUser.getMyCalender().display();
+		Scanner keyboard = new Scanner(System.in);
+		int input;
+		int startMonth, startDay, endMonth, endDay;
+		System.out.println("1: January");
+		System.out.println("2: February");
+		System.out.println("3: March");
+		System.out.println("4: April");
+		System.out.println("5: May");
+		System.out.println("6: June");
+		System.out.println("7: July");
+		System.out.println("8: August");
+		System.out.println("9: September");
+		System.out.println("10: October");
+		System.out.println("11: November");
+		System.out.println("12: December");
+		System.out.println("13: View Entire Calendar");
+		System.out.println("Enter the number according to the starting month or view entire Calendar: ");
+		input = keyboard.nextInt();
+		while(input < 1 || input > 13)
+		{
+			System.out.println("Input invalid. Please enter a number 1 - 13");
+			input = keyboard.nextInt();
+		}
+		if(input != 13)
+		{
+			startMonth = input-1;
+			System.out.println("Enter the starting day: ");
+			input = keyboard.nextInt();
+			if(input > theUser.getMyCalender().days[startMonth].length || input < 1)
+			{
+				while(input > theUser.getMyCalender().days[startMonth].length || input < 1)
+				{
+					System.out.println("Input invalid. Enter starting day: ");
+					input = keyboard.nextInt();
+				}
+			}
+			startDay = input-1;
+			System.out.println("1: January");
+			System.out.println("2: February");
+			System.out.println("3: March");
+			System.out.println("4: April");
+			System.out.println("5: May");
+			System.out.println("6: June");
+			System.out.println("7: July");
+			System.out.println("8: August");
+			System.out.println("9: September");
+			System.out.println("10: October");
+			System.out.println("11: November");
+			System.out.println("12: December");
+			System.out.println("Enter the number according to the end month: ");
+			input = keyboard.nextInt();
+			while(input < startMonth+1 || input > 12)
+			{
+				System.out.println("Input invalid. Please enter a number 1 - 12");
+				input = keyboard.nextInt();
+			}
+			endMonth = input-1;
+			System.out.println("Enter the ending day: ");
+			input = keyboard.nextInt();
+			if(input > theUser.getMyCalender().days[endMonth].length || input < 1 || (startMonth == endMonth && input<startDay+1))
+			{
+				while(input > theUser.getMyCalender().days[startMonth].length || input < 1 || (startMonth == endMonth && input<startDay+1))
+				{
+					System.out.println("Input invalid. Enter ending day: ");
+					input = keyboard.nextInt();
+				}
+			}
+			endDay = input-1;
+			theUser.getMyCalender().display(startMonth,startDay,endMonth,endDay);
+		}
+		else
+		{
+			theUser.getMyCalender().display(0,0,11,30);
+		}
+		keyboard.close();
 	}
 	
 	public void addEvent(Day day, String name, int start, int end)

@@ -1,5 +1,7 @@
 package scheduler;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class Calendar {
 	
 	public Day [] [] days;
@@ -23,13 +25,53 @@ public class Calendar {
 		
 	}
 	
-	public void display()
+	public void display(int startMonth, int startDay, int endMonth, int endDay)
 	{
-		for(int i=0;i<this.days.length;i++)
+		for(int i=startMonth;i<=endMonth;i++)
 		{
-			for (int j=0;i<this.days[i].length;i++)
+			if(i == startMonth)
 			{
-				this.days[i][j].display(); 
+				for (int j=startDay;j<this.days[startMonth].length;j++)
+				{
+					System.out.println("Schedule for " + i+1+"/"+ j+1 +":");
+					if(this.days[i][j]!=null)
+						this.days[i][j].display();
+					else
+						System.out.println("Nothing scheduled for today."); 
+				}
+			}
+			else if(i == endMonth)
+			{
+				for (int j=0;j<endDay;j++)
+				{
+					System.out.println("Schedule for " + i+1+"/"+ j+1 +":");
+					if(this.days[i][j]!=null)
+						this.days[i][j].display();
+					else
+						System.out.println("Nothing scheduled for today.");
+				}
+			}
+			else if(startMonth == endMonth)
+			{
+				for (int j=startDay;j<endDay;j++)
+				{
+					System.out.println("Schedule for " + i+1+"/"+ j+1 +":");
+					if(this.days[i][j]!=null)
+						this.days[i][j].display();
+					else
+						System.out.println("Nothing scheduled for today.");
+				}
+			}
+			else
+			{
+				for (int j=0;j<this.days[i].length;j++)
+				{
+					System.out.println("Schedule for " + i+1+"/"+ j+1 +":");
+					if(this.days[i][j]!=null)
+						this.days[i][j].display();
+					else
+						System.out.println("Nothing scheduled for today.");
+				}
 			}
 		}
 	}

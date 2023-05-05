@@ -46,7 +46,10 @@ public class Day {
 	}
 
 	public void display() {
-		// TODO Auto-generated method stub
+		for(int i = 0; i<events.size(); i++)
+		{
+			System.out.println(events.get(i).getStartTime()+ " - "+ events.get(i).getEndTime()+ ": "+ events.get(i).getEventName());
+		}
 		
 	}
 }
