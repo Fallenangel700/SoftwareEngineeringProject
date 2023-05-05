@@ -323,7 +323,9 @@ public class main {
 			else if(input == 16)
 			{
 				System.out.println("Printing to file. ");
-				theControl.printToFile();
+				System.out.println("Where would you like the file? Ex: C:\\Users\\tyler\\Downloads");
+				String directory = keyboard.nextLine();
+				theControl.printToFile(directory);
 			}
 			////////////////////////////////////////////////////////////////////
 			//Edit Profile

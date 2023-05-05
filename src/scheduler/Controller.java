@@ -314,9 +314,10 @@ public class Controller
 		theUser.getMyCalender().removeReminder(start, end);
 	}
 	
-	public void printToFile()
+	public void printToFile(String directory)
 	{
-		theUser.getMyCalender().printToFile();
+		PrintToFile printer = new PrintToFile(theUser.getMyCalender());
+		printer.printCal(directory);
 	}
 
 	public void editProfile()

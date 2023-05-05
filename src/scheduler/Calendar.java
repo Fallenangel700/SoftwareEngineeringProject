@@ -205,9 +205,8 @@ public class Calendar {
 		curr.removeReminder(start,end);
 	}
 
-	public void printToFile(){
-
-		
+	public String getEventName(String key){
+		return eventNames.get(key);
 	}
 	
 
