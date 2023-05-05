@@ -17,6 +17,9 @@ public class Day {
 	 * the ArrayList is for sorting and validation purposes. I can put the proposed event time into the arraylist, convert it to an array and sort to check for clashes.
 	 */
 	
+	/*
+	 * Constructor. Creates a Day object with an empty HashMap of events, and an ArrayList of all of the keys stored in it.
+	 */
 	public Day()
 	{
 		this.events = new HashMap<String,Event>();
@@ -24,6 +27,11 @@ public class Day {
 		
 	}
 	
+	
+	/*
+	 * Calls the validTime method to determine if the event collides with any other event, or is invalid times.
+	 * @return true if event can be added
+	 */
 	public boolean addEvent(String startTime, String endTime, String name)
 	{
 		String key= startTime.replace(" ", "") + "-" + endTime.replace(" ", "");
@@ -31,19 +39,48 @@ public class Day {
 		{
 			return false;
 		}
+		this.keys.add(key);
 		this.events.put(key, new Event(startTime,endTime,name));
 		return true;
 		
 	}
-	//needs updated
+	/*
+	 * Precondition: key is validated in Calendar.
+	 * @return true if key is successfully removed
+	 * @param key The key of the Event to be removed.
+	 *
+	 */
 	public boolean removeEvent(String key)
 	{
-		
-		this.keys.remove(key);
-		this.events.remove(key);
-		return true;
+		if(this.keys.remove(key)==true)
+		{
+			this.events.remove(key);
+			return true;
+		}
+		return false;
 	}
-
+	
+	public boolean editEvent(String key,String newName,String newStartTime,String newEndTime)
+	{
+		Event eventHolder;
+		eventHolder=this.events.get(key);
+		if(eventHolder==null)
+		{
+			return false;
+		}
+		this.events.remove(key);
+		if(this.addEvent(newStartTime, newEndTime, newName)==true)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	public String display() 
+	{
+		// TODO Auto-generated method stub
+		return "";
+	}
 	
 	private boolean validateTime(String key)
 	{
@@ -166,11 +203,9 @@ public class Day {
 				
 		}
 	
-	public String display() {
-		// TODO Auto-generated method stub
-		return "";
+	
 		
-	}
+	
 	
 }
 

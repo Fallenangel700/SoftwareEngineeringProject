@@ -72,6 +72,11 @@ public class Calendar {
 		}
 	}
 	
+	public void editEvent(String oldName,String newName,String newStartTime,String newEndTime)
+	{
+		String key=this.eventNames.get(oldName);
+	}
+	
 	
 	/*
 	this endtime  string would be enough to make sure there is nothing that this event overlaps. it should create a string in the key format for endtime and then check all
