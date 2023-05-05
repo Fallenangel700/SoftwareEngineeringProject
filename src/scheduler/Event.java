@@ -71,6 +71,11 @@ public class Event
 	{
 		return this.endTime;
 	}
+
+	public int getReminderTime()
+	{
+		return this.eventReminder.getReminderTime();
+	}
 	
 	public String getEventName()
 	{

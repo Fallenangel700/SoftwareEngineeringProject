@@ -8,7 +8,7 @@ public class EventTest {
     @Before
     public void before()
     {
-        eve = new Event(0000, 1000, "Event");
+        //eve = new Event(0000, 1000, "Event");
     }
 
     @Test
@@ -38,18 +38,18 @@ public class EventTest {
     @Test
     public void testingChangeStart()
     {
-        eve.changeStartTime(2000);
+        //eve.changeStartTime(2000);
         Assert.assertEquals(eve.getStartTime(),2000);
-        eve.changeStartTime(8000);
+        //eve.changeStartTime(8000);
         Assert.assertEquals(eve.getStartTime(),2000);
     }
 
     @Test
     public void testingChangeEnd()
     {
-        eve.changeEndTime(2400);
+        //eve.changeEndTime(2400);
         Assert.assertEquals(eve.getEndTime(),2400);
-        eve.changeEndTime(8000);
+        //eve.changeEndTime(8000);
         Assert.assertEquals(eve.getEndTime(),2400);
     }
 
@@ -63,15 +63,16 @@ public class EventTest {
     @Test
     public void testingSetReminder()
     {
-        eve.setReminderTime(1200);
-        //need a get reminder time function
+        //eve.setReminderTime(1200);
+        Assert.assertEquals(1200,eve.getReminderTime());
+        eve.getReminderTime();
     }
 
     @After
     public void after()
     {
-        eve.changeStartTime(0000);
-        eve.changeEndTime(1000);
+        //eve.changeStartTime(0000);
+        //eve.changeEndTime(1000);
         eve.changeName("Event");
     }
     

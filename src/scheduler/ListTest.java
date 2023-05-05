@@ -1,6 +1,6 @@
 package scheduler;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+//import java.io.ByteArrayInputStream;
+//import java.io.InputStream;
 
 import org.junit.*;
 
@@ -54,12 +54,7 @@ public class ListTest {
     public void testingEditTask()
     {       
         list.addTask(test);
-
-        InputStream sysInBackup = System.in;
-        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
-        System.setIn(in);
         list.editTask();
-        System.setIn(sysInBackup);
         Assert.assertEquals("1", list.listedTasks.get(1).getName());
         Assert.assertEquals("1", list.listedTasks.get(1).getDetails());
     }
