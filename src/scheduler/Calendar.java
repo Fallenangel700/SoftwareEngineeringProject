@@ -198,11 +198,11 @@ public class Calendar {
 
 	}
 
-	public void removeReminder(String start, String end, String time){
+	public void removeReminder(String start, String end){
 		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
 		String dayKey=key.substring(0,4);
 		Day curr = calendar.get(dayKey);
-		curr.addReminder();
+		curr.removeReminder(start,end);
 	}
 	
 

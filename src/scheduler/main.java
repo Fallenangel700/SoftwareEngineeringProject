@@ -311,9 +311,12 @@ public class main {
 			else if(input == 15)
 			{
 				System.out.println("Removing a reminder for an event. ");
-				System.out.println("Enter Event name: ");
-				name = keyboard.nextLine();			
-				theControl.removeReminder(name);
+				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Enter event start time in: ");
+				start = keyboard.nextLine();
+				System.out.println("Enter event end time: ");
+				end = keyboard.nextLine();
+				theControl.removeReminder(start, end);
 			}
 			////////////////////////////////////////////////////////////////////
 			//Print to file
