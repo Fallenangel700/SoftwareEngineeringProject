@@ -64,7 +64,8 @@ public class EventTest {
     public void testingSetReminder()
     {
         eve.setReminderTime(1200);
-        //need a get reminder time function
+        Assert.assertEquals(1200,eve.getReminderTime());
+        eve.getReminderTime();
     }
 
     @After

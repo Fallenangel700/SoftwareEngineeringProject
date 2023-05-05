@@ -95,7 +95,7 @@ public class main {
 			System.out.println("4: Remove Event from Calender");
 			System.out.println("5: Display To-Do List");
 			System.out.println("6: Create new To-Do List");
-			System.out.println("7: Edit new To-Do List");
+			System.out.println("7: Edit To-Do List");
 			System.out.println("8: Delete To-Do List");
 			System.out.println("9: Add Task to To-Do List");
 			System.out.println("10: Remove Task from To-Do List");
