@@ -99,13 +99,14 @@ public class main {
 			System.out.println("8: Add Task to To-Do List");
 			System.out.println("9: Edit Task from To-Do List");
 			System.out.println("10: Remove Task from To-Do List");
-			System.out.println("11: Set Reminder for Event");
-			System.out.println("12: Remove Reminder for event");
-			System.out.println("13: Print Calender to file");
-			System.out.println("14: Edit Profile");
-			System.out.println("15: Delete Profile");
+			System.out.println("11: Create Reminder for Event");
+			System.out.println("12: Edit Reminder for Event");
+			System.out.println("13: Remove Reminder for Event");
+			System.out.println("14: Print Calender to file");
+			System.out.println("15: Edit Profile");
+			System.out.println("16: Delete Profile");
 
-			System.out.println("16: Exit");
+			System.out.println("17: Exit");
 
 			////////////////////////////////////////////////////////////////////
 			//Get and validate input
@@ -269,10 +270,10 @@ public class main {
 			//Delete Reminder
 			else if(input == 12)
 			{
-				System.out.println("Setting a reminder for an event. ");
+				System.out.println("Removing a reminder for an event. ");
 				System.out.println("Enter Event name: ");
 				name = keyboard.nextLine();			
-				theControl.setReminder(name);
+				theControl.removeReminder(name);
 			}
 			////////////////////////////////////////////////////////////////////
 			//Print to file
