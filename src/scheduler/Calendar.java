@@ -75,11 +75,6 @@ public class Calendar {
 	public void editEvent(String oldName,String newName,String newStartTime,String newEndTime)
 	{
 		String key=this.eventNames.get(oldName);
-		if(this.calendar.get(key)==null)
-		{
-			return;
-		}
-		this.calendar.get(key).editEvent(key,newName,newStartTime,newEndTime);
 	}
 	
 	
@@ -186,6 +181,28 @@ public class Calendar {
 		this.calendar.put(day,newDay);
 		
 		
+	}
+
+	public void addReminder(String start, String end, String time){
+		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		String dayKey=key.substring(0,4);
+		Day curr = calendar.get(dayKey);
+		curr.addReminder(start, end, time);
+	}
+
+	public void editReminder(String start, String end, String time){
+		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		String dayKey=key.substring(0,4);
+		Day curr = calendar.get(dayKey);
+		curr.editReminder(start, end, time);
+
+	}
+
+	public void removeReminder(String start, String end, String time){
+		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		String dayKey=key.substring(0,4);
+		Day curr = calendar.get(dayKey);
+		curr.addReminder();
 	}
 	
 

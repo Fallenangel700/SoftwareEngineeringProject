@@ -56,21 +56,96 @@ public class Controller
 	public void displayCalender()
 	{
 		theUser.getMyCalender().display();
+		// Scanner keyboard = new Scanner(System.in);
+		// int input;
+		// int startMonth, startDay, endMonth, endDay;
+		// System.out.println("1: January");
+		// System.out.println("2: February");
+		// System.out.println("3: March");
+		// System.out.println("4: April");
+		// System.out.println("5: May");
+		// System.out.println("6: June");
+		// System.out.println("7: July");
+		// System.out.println("8: August");
+		// System.out.println("9: September");
+		// System.out.println("10: October");
+		// System.out.println("11: November");
+		// System.out.println("12: December");
+		// System.out.println("13: View Entire Calendar");
+		// System.out.println("Enter the number according to the starting month or view entire Calendar: ");
+		// input = keyboard.nextInt();
+		// while(input < 1 || input > 13)
+		// {
+		// 	System.out.println("Input invalid. Please enter a number 1 - 13");
+		// 	input = keyboard.nextInt();
+		// }
+		// if(input != 13)
+		// {
+		// 	startMonth = input-1;
+		// 	System.out.println("Enter the starting day: ");
+		// 	input = keyboard.nextInt();
+		// 	if(input > theUser.getMyCalender().days[startMonth].length || input < 1)
+		// 	{
+		// 		while(input > theUser.getMyCalender().days[startMonth].length || input < 1)
+		// 		{
+		// 			System.out.println("Input invalid. Enter starting day: ");
+		// 			input = keyboard.nextInt();
+		// 		}
+		// 	}
+		// 	startDay = input-1;
+		// 	System.out.println("1: January");
+		// 	System.out.println("2: February");
+		// 	System.out.println("3: March");
+		// 	System.out.println("4: April");
+		// 	System.out.println("5: May");
+		// 	System.out.println("6: June");
+		// 	System.out.println("7: July");
+		// 	System.out.println("8: August");
+		// 	System.out.println("9: September");
+		// 	System.out.println("10: October");
+		// 	System.out.println("11: November");
+		// 	System.out.println("12: December");
+		// 	System.out.println("Enter the number according to the end month: ");
+		// 	input = keyboard.nextInt();
+		// 	while(input < startMonth+1 || input > 12)
+		// 	{
+		// 		System.out.println("Input invalid. Please enter a number 1 - 12");
+		// 		input = keyboard.nextInt();
+		// 	}
+		// 	endMonth = input-1;
+		// 	System.out.println("Enter the ending day: ");
+		// 	input = keyboard.nextInt();
+		// 	if(input > theUser.getMyCalender().days[endMonth].length || input < 1 || (startMonth == endMonth && input<startDay+1))
+		// 	{
+		// 		while(input > theUser.getMyCalender().days[startMonth].length || input < 1 || (startMonth == endMonth && input<startDay+1))
+		// 		{
+		// 			System.out.println("Input invalid. Enter ending day: ");
+		// 			input = keyboard.nextInt();
+		// 		}
+		// 	}
+		// 	endDay = input-1;
+		// 	theUser.getMyCalender().display(startMonth,startDay,endMonth,endDay);
+		// }
+		// else
+		// {
+		// 	theUser.getMyCalender().display(0,0,11,30);
+		// }
+		// keyboard.close();
 	}
 	
 	public void addEvent(String name, String start, String end)
 	{
-		theUser.getMyCalender().addEvent(name, start, end);
+		theUser.getMyCalender().addEvent( name, start, end);
 	}
 	
 	public void editEvent(String oldName, String newName, String start, String end)
 	{
-		theUser.getMyCalender().editEvent(oldName, newName, start, end);
+		theUser.getMyCalender().editEvent( oldName, newName, start, end);
 	}
 	
 	public void removeEvent(String name)
 	{
-		theUser.getMyCalender().removeEvent(name);
+		theUser.getMyCalender().removeEvent( name);
 	}
 	
 	public void displayLists()
@@ -85,6 +160,70 @@ public class Controller
 	{
 		List temp = new List();
 		theUser.getLists().push(temp);
+	}
+
+	public void editList(String listName)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		String newListName;
+		String input;
+		boolean finished = false;
+		int match = -1; 
+		for(int x = 0; x < theUser.getLists().size(); x++)
+		{
+			if(theUser.getLists().get(x).getListName().equalsIgnoreCase(listName))
+			{
+				match = x;
+				break;
+			}
+		}
+		if(match != -1)
+		{
+			System.out.println("Would you like to change your list name? (yes/no)");
+			input = keyboard.nextLine();
+			while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+			{
+				System.out.println("Input invalid. Please enter yes or no");
+				System.out.println("Would you like to change your list name? (yes/no)");
+				input = keyboard.nextLine();
+			}
+			if(input == "yes" || input == "Yes")
+			{
+				System.out.println("Please enter the new list name: ");
+				newListName = keyboard.nextLine();
+				theUser.getLists().get(match).setListName(newListName);
+			}
+			while(finished == false)
+			{
+				System.out.println("Would you like to delete a task? (yes/no)");
+				input = keyboard.nextLine();
+				while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+				{
+					System.out.println("Input invalid. Please enter yes or no");
+					System.out.println("Would you like to delete a task? (yes/no)");
+					input = keyboard.nextLine();
+				}
+				if(input == "yes" || input == "Yes")
+				{
+					int taskNum;
+					theUser.getLists().get(match).display();
+					System.out.print("Enter task number to delete: ");
+					taskNum = keyboard.nextInt();
+					while(taskNum > theUser.getLists().get(match).getSize())
+					{
+						System.out.print("Input invalid. Please enter a task number to delete: ");
+						input = keyboard.nextLine();
+					}
+					theUser.getLists().get(match).removeTask(theUser.getLists().get(match).getTask(taskNum));
+				}
+				else
+					finished = true;
+			}
+		}
+		else
+			System.out.println("List not found.");
+
+		keyboard.close();
 	}
 	
 	public void deleteList(String listName) {
@@ -161,16 +300,25 @@ public class Controller
 		else
 			System.out.println("List not found.");
 	}
-	public void setReminder(String eventName)
+
+	public void addReminder(String start, String end, String time){
+		theUser.getMyCalender().addReminder(start, end, time);
+	}
+
+	public void editReminder(String start, String end, String newTime)
 	{
-		theUser.getMyCalender().setReminder();
+		theUser.getMyCalender().editReminder(start, end, newTime);
+	}
+
+	public void removeReminder(String start, String end){
+		//theUser.getMyCalender().removeReminder();
 	}
 	
 	public void printToFile()
 	{
-		theUser.getMyCalender().printToFile();
+		//theUser.getMyCalender().printToFile();
 	}
-	
+
 	public void editProfile()
 	{
 		Scanner keyboard = new Scanner(System.in);
@@ -241,7 +389,7 @@ public class Controller
 		keyboard.close();
 	}
 	
-	public void deleteProfile()
+	public boolean deleteProfile()
 	{
 		Scanner keyboard = new Scanner(System.in);
 		String input;
@@ -273,6 +421,8 @@ public class Controller
 			{
 				System.out.println("Too many failed Attempts.");
 				System.out.println("Exiting Now.");
+				keyboard.close();
+				return false;
 			}
 			else
 			{
@@ -286,9 +436,16 @@ public class Controller
 					}
 				}
 				System.out.println("Profile Deleted.");
+				keyboard.close();
+				return true;
 			}
 		}
-		keyboard.close();
+		else
+		{
+			keyboard.close();
+			return false;
+		}
+			
 	}
 	
 }

@@ -84,7 +84,7 @@ public class main {
 						
 		}
 		
-		while(input != 6)
+		while(input != 19)
 		{
 			System.out.println("Please pick one of the following: \n");
 
@@ -95,15 +95,20 @@ public class main {
 			System.out.println("4: Remove Event from Calender");
 			System.out.println("5: Display To-Do List");
 			System.out.println("6: Create new To-Do List");
-			System.out.println("7: Delete To-Do List");
-			System.out.println("8: Add Task to To-Do List");
-			System.out.println("9: Remove Task from To-Do List");
-			System.out.println("10: Set Reminder for Event");
-			System.out.println("11: Print Calender to file");
-			System.out.println("12: Edit Profile");
-			System.out.println("13: Delete Profile");
+			System.out.println("7: Edit To-Do List");
+			System.out.println("8: Delete To-Do List");
+			System.out.println("9: Add Task to To-Do List");
+			System.out.println("10: Edit Task from To-Do List");
+			System.out.println("11: Remove Task from To-Do List");
+			System.out.println("12: Add Task From To-Do List to Calendar");
+			System.out.println("13: Add Reminder for Event");
+			System.out.println("14: Edit Reminder for Event");
+			System.out.println("15: Remove Reminder for Event");
+			System.out.println("16: Print Calender to file");
+			System.out.println("17: Edit Profile");
+			System.out.println("18: Delete Profile");
 
-			System.out.println("14: Exit");
+			System.out.println("19: Exit");
 
 			////////////////////////////////////////////////////////////////////
 			//Get and validate input
@@ -124,7 +129,7 @@ public class main {
 			while (input == -1)
 			{
 				System.out.println("\nThat is not a valid choice. Please try again.");
-				System.out.print("Enter a number between 1 and 13 :");
+				System.out.print("Enter a number between 1 and 15 :");
 				choice = keyboard.next();
 				try
 				{
@@ -177,7 +182,7 @@ public class main {
 				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
 				System.out.println("Enter new event start time in: ");
 				start = keyboard.nextLine();
-				System.out.println("Enternew  event end time: ");
+				System.out.println("Enter new event end time: ");
 				end = keyboard.nextLine();
 				
 				theControl.editEvent(name, name2, start, end);
@@ -212,8 +217,18 @@ public class main {
 				theControl.createList(name);
 			}
 			////////////////////////////////////////////////////////////////////
-			//Delete TO-DO list
+			//Edit the TO-DO lists
 			else if(input == 7)
+			{
+				System.out.println("Editing To-Do Lists. ");
+				System.out.println("Enter List name: ");
+				name = keyboard.nextLine();
+				
+				theControl.editList(name);
+			}			
+			////////////////////////////////////////////////////////////////////
+			//Delete TO-DO list
+			else if(input == 8)
 			{
 				System.out.println("Deleteing To-Do List. ");
 				theControl.displayLists();
@@ -225,7 +240,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Add task to TO-DO list
-			else if(input == 8)
+			else if(input == 9)
 			{
 				System.out.println("Adding New Task to a To-Do List. ");
 				System.out.println("Enter List name: ");
@@ -236,7 +251,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Edit task in TO-DO list
-			else if(input == 9)
+			else if(input == 10)
 			{
 				System.out.println("Editing Task in a To-Do List. ");
 				System.out.println("Enter List name: ");
@@ -245,7 +260,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//delete task in TO-DO list
-			else if(input == 10)
+			else if(input == 11)
 			{
 				System.out.println("Deleting Task in a To-Do List. ");
 				System.out.println("Enter List name: ");
@@ -255,34 +270,75 @@ public class main {
 				theControl.removeTask(name, name2);
 			}
 			////////////////////////////////////////////////////////////////////
-			//Set Reminder
-			else if(input == 11)
+			//Add Task from To-Do List to Calendar
+			else if(input == 12)
 			{
-				System.out.println("Setting a reminder for an event. ");
-				System.out.println("Enter Event name: ");
+				System.out.println("Adding Task to Calendar. ");
+				System.out.println("Enter Task name: ");
 				name = keyboard.nextLine();			
 				theControl.setReminder(name);
 			}
 			////////////////////////////////////////////////////////////////////
+			//Add Reminder
+			else if(input == 13)
+			{
+				System.out.println("Setting a reminder for an event. ");
+				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Enter event start time in: ");
+				start = keyboard.nextLine();
+				System.out.println("Enter event end time: ");
+				end = keyboard.nextLine();		
+				System.out.println("Enter event reminder militaty time before event HRMN EX: 1558 for 3:58 PM");
+				name = keyboard.nextLine();
+				theControl.addReminder(start, end, name);
+			}
+			////////////////////////////////////////////////////////////////////
+			//Edit Reminder
+			else if(input == 14)
+			{
+				System.out.println("Editing a reminder for an event. ");
+				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Enter event start time in: ");
+				start = keyboard.nextLine();
+				System.out.println("Enter event end time: ");
+				end = keyboard.nextLine();		
+				System.out.println("Enter new event reminder militaty time before event HRMN EX: 1558 for 3:58 PM");
+				name = keyboard.nextLine();
+				theControl.editReminder(start, end, name);
+			}
+			////////////////////////////////////////////////////////////////////
+			//Delete Reminder
+			else if(input == 15)
+			{
+				System.out.println("Removing a reminder for an event. ");
+				System.out.println("Enter Event name: ");
+				name = keyboard.nextLine();			
+				theControl.removeReminder(name);
+			}
+			////////////////////////////////////////////////////////////////////
 			//Print to file
-			else if(input == 12)
+			else if(input == 16)
 			{
 				System.out.println("Printing to file. ");
 				theControl.printToFile();
 			}
 			////////////////////////////////////////////////////////////////////
-			else if(input == 13)
+			//Edit Profile
+			else if(input == 17)
 			{
 				System.out.println("Editing Profile. ");
 				theControl.editProfile();
 			}
 			////////////////////////////////////////////////////////////////////
-			else if(input == 14)
+			//Delete Profile
+			else if(input == 18)
 			{
-				theControl.deleteProfile();
+				boolean out = theControl.deleteProfile();
+				if(out == true)
+					input = 14;
 			}
 			////////////////////////////////////////////////////////////////////
-			else if(input == 15)
+			else if(input == 19)
 			{
 				//nothing, this ends the program.
 			}

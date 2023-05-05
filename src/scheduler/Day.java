@@ -60,17 +60,6 @@ public class Day {
 		return false;
 	}
 	
-	
-	/*
-	 * Checks if the key is in the day. Removes it from the map if so, and calls addEvent.
-	 * If addEvent returns true it replaces the old event. If false old event if put back in.
-	 * @param key A string that is the key for the event that is to be edited.
-	 * @param newName A string that is the new name for the event
-	 * @param newStartTime A string that is the new start time for the event
-	 * @param newEndTime A string that is the new end time for the event.
-	 * 
-	 * @return true if the edit is valid.
-	 */
 	public boolean editEvent(String key,String newName,String newStartTime,String newEndTime)
 	{
 		Event eventHolder;
@@ -84,8 +73,21 @@ public class Day {
 		{
 			return true;
 		}
-		this.events.put(key, eventHolder);
 		return false;
+	}
+
+	public void addReminder(String start, String end, String time){
+		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		Event curr = events.get(key);
+		curr.addReminderTime(time);
+	}
+	public void editReminder(String start, String end, String time){
+		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		Event curr = events.get(key);
+		curr.editReminderTime(time);
+	}
+	public void deleteRemindeR(){
+
 	}
 	
 	public String display() 
