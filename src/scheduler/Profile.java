@@ -17,11 +17,6 @@ public class Profile {
 		this.password = pass;
 	}
 	
-	public void display()
-	{
-		
-	}
-
 	public String getName()
 	{
 		return this.userName;

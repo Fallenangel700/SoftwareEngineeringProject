@@ -84,7 +84,7 @@ public class main {
 						
 		}
 		
-		while(input != 6)
+		while(input != 15)
 		{
 			System.out.println("Please pick one of the following: \n");
 
@@ -95,15 +95,16 @@ public class main {
 			System.out.println("4: Remove Event from Calender");
 			System.out.println("5: Display To-Do List");
 			System.out.println("6: Create new To-Do List");
-			System.out.println("7: Delete To-Do List");
-			System.out.println("8: Add Task to To-Do List");
-			System.out.println("9: Remove Task from To-Do List");
-			System.out.println("10: Set Reminder for Event");
-			System.out.println("11: Print Calender to file");
-			System.out.println("12: Edit Profile");
-			System.out.println("13: Delete Profile");
+			System.out.println("7: Edit To-Do List");
+			System.out.println("8: Delete To-Do List");
+			System.out.println("9: Add Task to To-Do List");
+			System.out.println("10: Remove Task from To-Do List");
+			System.out.println("11: Set Reminder for Event");
+			System.out.println("12: Print Calender to file");
+			System.out.println("13: Edit Profile");
+			System.out.println("14: Delete Profile");
 
-			System.out.println("14: Exit");
+			System.out.println("15: Exit");
 
 			////////////////////////////////////////////////////////////////////
 			//Get and validate input
@@ -124,7 +125,7 @@ public class main {
 			while (input == -1)
 			{
 				System.out.println("\nThat is not a valid choice. Please try again.");
-				System.out.print("Enter a number between 1 and 13 :");
+				System.out.print("Enter a number between 1 and 15 :");
 				choice = keyboard.next();
 				try
 				{
@@ -212,8 +213,18 @@ public class main {
 				theControl.createList(name);
 			}
 			////////////////////////////////////////////////////////////////////
-			//Delete TO-DO list
+			//Edit the TO-DO lists
 			else if(input == 7)
+			{
+				System.out.println("Editing To-Do Lists. ");
+				System.out.println("Enter List name: ");
+				name = keyboard.nextLine();
+				
+				theControl.editList(name);
+			}			
+			////////////////////////////////////////////////////////////////////
+			//Delete TO-DO list
+			else if(input == 8)
 			{
 				System.out.println("Deleteing To-Do List. ");
 				theControl.displayLists();
@@ -225,7 +236,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Add task to TO-DO list
-			else if(input == 8)
+			else if(input == 9)
 			{
 				System.out.println("Adding New Task to a To-Do List. ");
 				System.out.println("Enter List name: ");
@@ -271,15 +282,19 @@ public class main {
 				theControl.printToFile();
 			}
 			////////////////////////////////////////////////////////////////////
+			//Edit Profile
 			else if(input == 13)
 			{
 				System.out.println("Editing Profile. ");
 				theControl.editProfile();
 			}
 			////////////////////////////////////////////////////////////////////
+			//Delete Profile
 			else if(input == 14)
 			{
-				theControl.deleteProfile();
+				boolean out = theControl.deleteProfile();
+				if(out == true)
+					input = 14;
 			}
 			////////////////////////////////////////////////////////////////////
 			else if(input == 15)
