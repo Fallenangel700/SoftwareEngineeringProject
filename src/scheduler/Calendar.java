@@ -75,6 +75,11 @@ public class Calendar {
 	public void editEvent(String oldName,String newName,String newStartTime,String newEndTime)
 	{
 		String key=this.eventNames.get(oldName);
+		if(this.calendar.get(key)==null)
+		{
+			return;
+		}
+		this.calendar.get(key).editEvent(key,newName,newStartTime,newEndTime);
 	}
 	
 	
