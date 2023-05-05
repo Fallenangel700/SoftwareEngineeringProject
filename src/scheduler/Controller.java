@@ -300,6 +300,23 @@ public class Controller
 		else
 			System.out.println("List not found.");
 	}
+	public Task getTask(String listName, String name){
+		int match = -1; 
+		for(int x = 0; x < theUser.getLists().size(); x++)
+		{
+			if(theUser.getLists().get(x).getListName().equalsIgnoreCase(listName))
+			{
+				match = x;
+				break;
+			}
+		}
+		if(match != -1)
+		{
+			return theUser.getLists().get(match).getTask(name);
+		}
+		else
+			return null;
+	}
 
 	public void addReminder(String start, String end, String time){
 		theUser.getMyCalender().addReminder(start, end, time);
@@ -317,7 +334,11 @@ public class Controller
 	public void printToFile(String directory)
 	{
 		PrintToFile printer = new PrintToFile(theUser.getMyCalender());
-		printer.printCal(directory);
+		try{
+			printer.printCal(directory);
+		} catch(Exception e){
+			System.out.println("invalid directory");
+		}
 	}
 
 	public void editProfile()

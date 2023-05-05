@@ -23,6 +23,13 @@ public class List {
 		this.listedTasks.remove(completedTask);
 	}
 
+	public Task getTask(String taskName){
+		for(Task temp: listedTasks)
+			if(temp.getName().equals(taskName))
+				return temp;
+		return null;
+	}
+
 	public void editTask()
 	{
 		//TO-DO add input validation

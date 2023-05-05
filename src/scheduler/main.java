@@ -273,8 +273,23 @@ public class main {
 			//Add Task from To-Do List to Calendar
 			else if(input == 12)
 			{
-	
-
+				System.out.println("Adding a task from a To-Do List to the Calendar.");
+				System.out.println("Enter List name: ");
+				name = keyboard.nextLine();	
+				System.out.println("Enter Task name: ");
+				name2 = keyboard.nextLine();	
+				System.out.println("When do you want the event?");
+				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Enter new event start time in: ");
+				start = keyboard.nextLine();
+				System.out.println("Enter new event end time: ");
+				end = keyboard.nextLine();
+				
+				if(theControl.getTask(name,name2) != null)
+					theControl.addEvent(name2, start, end);
+				else{
+					System.out.println("Invalid Task/list");
+				}
 
 
 			}
