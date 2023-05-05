@@ -283,9 +283,14 @@ public class main {
 			else if(input == 13)
 			{
 				System.out.println("Setting a reminder for an event. ");
-				System.out.println("Enter Event name: ");
-				name = keyboard.nextLine();			
-				theControl.setReminder(name);
+				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Enter event start time in: ");
+				start = keyboard.nextLine();
+				System.out.println("Enter event end time: ");
+				end = keyboard.nextLine();		
+				System.out.println("Enter event reminder militaty time before event HRMN EX: 0734 or 1558");
+				name = keyboard.nextLine();
+				theControl.addReminder(start, end, name);
 			}
 			////////////////////////////////////////////////////////////////////
 			//Edit Reminder
