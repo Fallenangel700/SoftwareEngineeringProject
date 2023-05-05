@@ -273,7 +273,7 @@ public class main {
 			//Add Task from To-Do List to Calendar
 			else if(input == 12)
 			{
-				System.out.println("Moving Task to Calendar. ");
+				System.out.println("Adding Task to Calendar. ");
 				System.out.println("Enter Task name: ");
 				name = keyboard.nextLine();			
 				theControl.setReminder(name);
