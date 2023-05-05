@@ -161,16 +161,21 @@ public class Controller
 		else
 			System.out.println("List not found.");
 	}
+
 	public void setReminder(String eventName)
 	{
 		theUser.getMyCalender().setReminder();
+	}
+
+	public void removeReminder(String eventName){
+		theUser.getMyCalender().removeReminder();
 	}
 	
 	public void printToFile()
 	{
 		theUser.getMyCalender().printToFile();
 	}
-	
+
 	public void editProfile()
 	{
 		Scanner keyboard = new Scanner(System.in);
