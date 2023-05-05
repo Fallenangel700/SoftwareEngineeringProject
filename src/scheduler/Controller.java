@@ -311,7 +311,7 @@ public class Controller
 	}
 
 	public void removeReminder(String start, String end){
-		//theUser.getMyCalender().removeReminder();
+		theUser.getMyCalender().removeReminder(start, end);
 	}
 	
 	public void printToFile()

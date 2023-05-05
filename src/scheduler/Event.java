@@ -66,6 +66,10 @@ public class Event
 		}
 		this.eventReminder.setReminderTime(Integer.parseInt(reminderTime));
 	}
+
+	public void removeReminder(){
+		this.eventReminder = null;
+	}
 	
 	public String getStartTime()
 	{

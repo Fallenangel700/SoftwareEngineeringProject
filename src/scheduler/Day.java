@@ -86,8 +86,10 @@ public class Day {
 		Event curr = events.get(key);
 		curr.editReminderTime(time);
 	}
-	public void deleteRemindeR(){
-
+	public void removeReminder(String start, String end){
+		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		Event curr = events.get(key);
+		curr.removeReminder();
 	}
 	
 	public String display() 
