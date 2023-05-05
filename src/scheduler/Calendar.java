@@ -182,6 +182,15 @@ public class Calendar {
 		
 		
 	}
+
+	public void setReminder(String name){
+		String key=this.eventNames.get(name);
+		
+	}
+
+	public void removeReminder(String name){
+		String key=this.eventNames.get(name);
+	}
 	
 
 }
