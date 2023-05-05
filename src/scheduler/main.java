@@ -235,8 +235,17 @@ public class main {
 				theControl.addTask(name, name2);
 			}
 			////////////////////////////////////////////////////////////////////
-			//delete task in TO-DO list
+			//Edit task in TO-DO list
 			else if(input == 9)
+			{
+				System.out.println("Editing Task in a To-Do List. ");
+				System.out.println("Enter List name: ");
+				name = keyboard.nextLine();			
+				theControl.editTask(name);
+			}
+			////////////////////////////////////////////////////////////////////
+			//delete task in TO-DO list
+			else if(input == 10)
 			{
 				System.out.println("Deleting Task in a To-Do List. ");
 				System.out.println("Enter List name: ");
@@ -247,7 +256,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Set Reminder
-			else if(input == 10)
+			else if(input == 11)
 			{
 				System.out.println("Setting a reminder for an event. ");
 				System.out.println("Enter Event name: ");
@@ -256,24 +265,24 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Print to file
-			else if(input == 11)
+			else if(input == 12)
 			{
 				System.out.println("Printing to file. ");
 				theControl.printToFile();
 			}
 			////////////////////////////////////////////////////////////////////
-			else if(input == 12)
+			else if(input == 13)
 			{
 				System.out.println("Editing Profile. ");
 				theControl.editProfile();
 			}
 			////////////////////////////////////////////////////////////////////
-			else if(input == 13)
+			else if(input == 14)
 			{
 				theControl.deleteProfile();
 			}
 			////////////////////////////////////////////////////////////////////
-			else if(input == 14)
+			else if(input == 15)
 			{
 				//nothing, this ends the program.
 			}
