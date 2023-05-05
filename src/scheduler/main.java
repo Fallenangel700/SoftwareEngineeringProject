@@ -84,7 +84,7 @@ public class main {
 						
 		}
 		
-		while(input != 15)
+		while(input != 18)
 		{
 			System.out.println("Please pick one of the following: \n");
 
@@ -98,13 +98,16 @@ public class main {
 			System.out.println("7: Edit To-Do List");
 			System.out.println("8: Delete To-Do List");
 			System.out.println("9: Add Task to To-Do List");
-			System.out.println("10: Remove Task from To-Do List");
-			System.out.println("11: Set Reminder for Event");
-			System.out.println("12: Print Calender to file");
-			System.out.println("13: Edit Profile");
-			System.out.println("14: Delete Profile");
+			System.out.println("10: Efit Task from To-Do List");
+			System.out.println("11: Remove Task from To-Do List");
+			System.out.println("12: Add Reminder for Event");
+			System.out.println("13: Edit Reminder for Event");
+			System.out.println("14: Remove Reminder for Event");
+			System.out.println("15: Print Calender to file");
+			System.out.println("16: Edit Profile");
+			System.out.println("17: Delete Profile");
 
-			System.out.println("15: Exit");
+			System.out.println("18: Exit");
 
 			////////////////////////////////////////////////////////////////////
 			//Get and validate input
