@@ -11,6 +11,9 @@ public class Event
 	private String eventName; //name of the event.
 	private Reminder eventReminder; //optional Reminder for the Event
 	
+	/*
+	 * @Constructor
+	 */
 	public Event(String startTime, String endTime, String eventName)
 	{
 		this.startTime=startTime;
@@ -18,25 +21,34 @@ public class Event
 		this.eventName=eventName;	
 	}
 	
+	
+	
 	public void changeName(String name)
 	{
 		this.eventName=name;
 	}
 	
+	
+	/*
+	 * Precondition: newTime is assumed to be checked if valid in the Day class
+	 */
 	public void changeStartTime(String newTime)
 	{
-		if(validateTime(newTime)==true) //calls the validateTime function to verify time is between 0-2400
-		{
+
 			this.startTime=newTime; 
-		}
-		//if the time is not valid, the time does not change
+		
+		
 	}
 	
+	/*
+	 * Precondition: newTime is assumed to be checked if valid in the Day class
+	 */
 	public void changeEndTime(String newTime)
 	{
 		this.endTime=newTime;
 	}
 	
+	/*
 	public void setReminderTime(String reminderTime)
 	{
 		if(this.eventReminder==null)
@@ -49,7 +61,7 @@ public class Event
 			this.eventReminder.setReminderTime(reminderTime);
 		}
 	}
-	
+	*/
 	public String getStartTime()
 	{
 		return this.startTime;

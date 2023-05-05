@@ -26,12 +26,12 @@ public class Day {
 	
 	public boolean addEvent(String startTime, String endTime, String name)
 	{
-		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		String key= startTime.replace(" ", "") + "-" + endTime.replace(" ", "");
 		if(validateTime(key)==false)
 		{
 			return false;
 		}
-		this.events.put(key,Event(startTime,endTime,name));
+		this.events.put(key, new Event(startTime,endTime,name));
 		return true;
 		
 	}
@@ -98,8 +98,8 @@ public class Day {
 		//checking that the end time of the new event is not after the start time of the next event
 		if(arr.length>=indexOfKey + 1)
 		{
-			int startOfNext=arr[indexOfKey + 1].substring(3,8);
-			if(validateMonthAndDay(key.substring(8), arr[indexOfKey + 1].substring(8))==false)
+			String startOfNext=arr[indexOfKey + 1].substring(3,8);
+			if(validateMonthAndDay(endTime, startOfNext)==false)
 			{
 				keys.remove(key);
 				return false;
