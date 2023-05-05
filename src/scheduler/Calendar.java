@@ -204,6 +204,11 @@ public class Calendar {
 		Day curr = calendar.get(dayKey);
 		curr.removeReminder(start,end);
 	}
+
+	public void printToFile(){
+
+		
+	}
 	
 
 }

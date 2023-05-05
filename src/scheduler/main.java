@@ -129,7 +129,7 @@ public class main {
 			while (input == -1)
 			{
 				System.out.println("\nThat is not a valid choice. Please try again.");
-				System.out.print("Enter a number between 1 and 15 :");
+				System.out.print("Enter a number between 1 and 19 :");
 				choice = keyboard.next();
 				try
 				{
@@ -139,7 +139,7 @@ public class main {
 				{
 					input = -1;
 				}
-				if (input < 1 || input > 12)
+				if (input < 1 || input > 19)
 				{
 					input = -1;
 				}			
@@ -273,10 +273,10 @@ public class main {
 			//Add Task from To-Do List to Calendar
 			else if(input == 12)
 			{
-				System.out.println("Adding Task to Calendar. ");
-				System.out.println("Enter Task name: ");
-				name = keyboard.nextLine();			
-				theControl.setReminder(name);
+	
+
+
+
 			}
 			////////////////////////////////////////////////////////////////////
 			//Add Reminder

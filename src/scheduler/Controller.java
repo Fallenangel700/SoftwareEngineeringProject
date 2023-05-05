@@ -316,7 +316,7 @@ public class Controller
 	
 	public void printToFile()
 	{
-		//theUser.getMyCalender().printToFile();
+		theUser.getMyCalender().printToFile();
 	}
 
 	public void editProfile()
