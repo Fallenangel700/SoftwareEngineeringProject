@@ -1,17 +1,17 @@
 package scheduler;
 /* 
- * Core of the scheduler program. Building block for the Reminder and Calendar class.
+ * Core of the scheduler program. Building block for the Reminder and Calendar class. 
  * @author Grant Anderson 
  */
 
 public class Event 
 {
-	private int startTime; //starting time for the event, will be represented using 2400 time. 1:36 PM is 1336
-	private int endTime; //ending time for the event. Will have to make a verifying method.
+	private String startTime; //starting time for the event, will be represented using 2400 time. 1:36 PM is 1336
+	private String endTime; //ending time for the event. Will have to make a verifying method.
 	private String eventName; //name of the event.
 	private Reminder eventReminder; //optional Reminder for the Event
 	
-	public Event(int startTime, int endTime, String eventName)
+	public Event(String startTime, String endTime, String eventName)
 	{
 		this.startTime=startTime;
 		this.endTime=endTime;
@@ -23,7 +23,7 @@ public class Event
 		this.eventName=name;
 	}
 	
-	public void changeStartTime(int newTime)
+	public void changeStartTime(String newTime)
 	{
 		if(validateTime(newTime)==true) //calls the validateTime function to verify time is between 0-2400
 		{
@@ -32,34 +32,30 @@ public class Event
 		//if the time is not valid, the time does not change
 	}
 	
-	public void changeEndTime(int newTime)
+	public void changeEndTime(String newTime)
 	{
-		if(validateTime(newTime)==true) //calls the validateTime function to verify time is between 0-2400
-		{
-			this.endTime=newTime;
-		}
-		//if the time is not valid, the time does not change
+		this.endTime=newTime;
 	}
 	
-	public void setReminderTime(int reminderTime)
+	public void setReminderTime(String reminderTime)
 	{
-		if(this.eventReminder==null && validateReminderTime(reminderTime)==true)
+		if(this.eventReminder==null)
 		{
 			this.eventReminder= new Reminder();
 			this.eventReminder.setReminderTime(reminderTime);
 		}
-		else if(validateReminderTime(reminderTime)==true)
+		else 
 		{
 			this.eventReminder.setReminderTime(reminderTime);
 		}
 	}
 	
-	public int getStartTime()
+	public String getStartTime()
 	{
 		return this.startTime;
 	}
 	
-	public int getEndTime()
+	public String getEndTime()
 	{
 		return this.endTime;
 	}
@@ -69,22 +65,5 @@ public class Event
 		return this.eventName;
 	}
 	
-	private boolean validateReminderTime(int time)
-	{
-		if(validateTime(time)==false || time>=this.startTime) //if the time is at the time of the event or after, return false
-		{
-			return false;
-		}
-		return true;
-		
-	}
 	
-	private boolean validateTime(int time)
-	{
-		if(time>=0 && time<=2400)
-		{
-			return true;
-		}
-		else return false;
-	}
 }
