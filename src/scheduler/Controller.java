@@ -58,19 +58,19 @@ public class Controller
 		theUser.getMyCalender().display();
 	}
 	
-	public void addEvent(Day day, String name, int start, int end)
+	public void addEvent(String name, String start, String end)
 	{
-		theUser.getMyCalender().addEvent(day, name, start, end);
+		theUser.getMyCalender().addEvent(name, start, end);
 	}
 	
-	public void editEvent(Day day, String oldName, String newName, int start, int end)
+	public void editEvent(String oldName, String newName, String start, String end)
 	{
-		theUser.getMyCalender().editEvent(day, oldName, newName, start, end);
+		theUser.getMyCalender().editEvent(oldName, newName, start, end);
 	}
 	
-	public void removeEvent(Day day, String name)
+	public void removeEvent(String name)
 	{
-		theUser.getMyCalender().removeEvent(day, name);
+		theUser.getMyCalender().removeEvent(name);
 	}
 	
 	public void displayLists()
