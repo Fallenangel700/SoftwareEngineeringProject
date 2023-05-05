@@ -98,7 +98,7 @@ public class main {
 			System.out.println("7: Edit To-Do List");
 			System.out.println("8: Delete To-Do List");
 			System.out.println("9: Add Task to To-Do List");
-			System.out.println("10: Efit Task from To-Do List");
+			System.out.println("10: Edit Task from To-Do List");
 			System.out.println("11: Remove Task from To-Do List");
 			System.out.println("12: Add Reminder for Event");
 			System.out.println("13: Edit Reminder for Event");
@@ -250,7 +250,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Edit task in TO-DO list
-			else if(input == 9)
+			else if(input == 10)
 			{
 				System.out.println("Editing Task in a To-Do List. ");
 				System.out.println("Enter List name: ");
@@ -259,7 +259,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//delete task in TO-DO list
-			else if(input == 10)
+			else if(input == 11)
 			{
 				System.out.println("Deleting Task in a To-Do List. ");
 				System.out.println("Enter List name: ");
@@ -269,8 +269,8 @@ public class main {
 				theControl.removeTask(name, name2);
 			}
 			////////////////////////////////////////////////////////////////////
-			//Set Reminder
-			else if(input == 11)
+			//Add Reminder
+			else if(input == 12)
 			{
 				System.out.println("Setting a reminder for an event. ");
 				System.out.println("Enter Event name: ");
@@ -278,8 +278,17 @@ public class main {
 				theControl.setReminder(name);
 			}
 			////////////////////////////////////////////////////////////////////
+			//Edit Reminder
+			else if(input == 13)
+			{
+				System.out.println("Editing a reminder for an event. ");
+				System.out.println("Enter Event name: ");
+				name = keyboard.nextLine();			
+				theControl.setReminder(name);
+			}
+			////////////////////////////////////////////////////////////////////
 			//Delete Reminder
-			else if(input == 12)
+			else if(input == 14)
 			{
 				System.out.println("Removing a reminder for an event. ");
 				System.out.println("Enter Event name: ");
@@ -288,28 +297,28 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Print to file
-			else if(input == 13)
+			else if(input == 15)
 			{
 				System.out.println("Printing to file. ");
 				theControl.printToFile();
 			}
 			////////////////////////////////////////////////////////////////////
 			//Edit Profile
-			else if(input == 13)
+			else if(input == 16)
 			{
 				System.out.println("Editing Profile. ");
 				theControl.editProfile();
 			}
 			////////////////////////////////////////////////////////////////////
 			//Delete Profile
-			else if(input == 14)
+			else if(input == 17)
 			{
 				boolean out = theControl.deleteProfile();
 				if(out == true)
 					input = 14;
 			}
 			////////////////////////////////////////////////////////////////////
-			else if(input == 16)
+			else if(input == 18)
 			{
 				//nothing, this ends the program.
 			}
