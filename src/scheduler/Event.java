@@ -34,10 +34,7 @@ public class Event
 	 */
 	public void changeStartTime(String newTime)
 	{
-
-			this.startTime=newTime; 
-		
-		
+		this.startTime=newTime; 
 	}
 	
 	/*
@@ -48,7 +45,17 @@ public class Event
 		this.endTime=newTime;
 	}
 	
-	/*
+	
+	public void addReminderTime(String reminderTime)
+	{
+		if(this.eventReminder!=null)
+		{
+			System.out.println("ERROR: Pre-existing reminder for this event.");
+		}
+		this.eventReminder.setReminderTime(Integer.parseInt(reminderTime));
+		
+	}
+
 	public void setReminderTime(String reminderTime)
 	{
 		if(this.eventReminder==null)
@@ -61,7 +68,7 @@ public class Event
 			this.eventReminder.setReminderTime(reminderTime);
 		}
 	}
-	*/
+	
 	public String getStartTime()
 	{
 		return this.startTime;

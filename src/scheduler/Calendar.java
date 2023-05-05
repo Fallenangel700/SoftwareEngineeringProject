@@ -183,13 +183,26 @@ public class Calendar {
 		
 	}
 
-	public void setReminder(String name){
-		String key=this.eventNames.get(name);
-		
+	public void addReminder(String start, String end, String time){
+		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		String dayKey=key.substring(0,4);
+		Day curr = calendar.get(dayKey);
+		curr.addReminder(start, end, time);
 	}
 
-	public void removeReminder(String name){
-		String key=this.eventNames.get(name);
+	public void setReminder(String start, String end, String time){
+		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		String dayKey=key.substring(0,4);
+		Day curr = calendar.get(dayKey);
+		curr.addReminder();
+
+	}
+
+	public void removeReminder(String start, String end, String time){
+		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		String dayKey=key.substring(0,4);
+		Day curr = calendar.get(dayKey);
+		curr.addReminder();
 	}
 	
 

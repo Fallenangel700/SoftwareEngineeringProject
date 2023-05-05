@@ -75,6 +75,18 @@ public class Day {
 		}
 		return false;
 	}
+
+	public void addReminder(String start, String end, String time){
+		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
+		Event curr = events.get(key);
+		curr.addReminderTime(time);
+	}
+	public void editReminder(){
+
+	}
+	public void deleteRemindeR(){
+
+	}
 	
 	public String display() 
 	{

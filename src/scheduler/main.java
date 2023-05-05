@@ -288,7 +288,7 @@ public class main {
 				start = keyboard.nextLine();
 				System.out.println("Enter event end time: ");
 				end = keyboard.nextLine();		
-				System.out.println("Enter event reminder militaty time before event HRMN EX: 0734 or 1558");
+				System.out.println("Enter event reminder militaty time before event HRMN EX: 1558 for 3:58 PM");
 				name = keyboard.nextLine();
 				theControl.addReminder(start, end, name);
 			}

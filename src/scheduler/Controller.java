@@ -301,13 +301,17 @@ public class Controller
 			System.out.println("List not found.");
 	}
 
-	public void setReminder(String eventName)
+	public void addReminder(String start, String end, String time){
+		theUser.getMyCalender().addReminder(start, end, time);
+	}
+
+	public void setReminder(String start, String end, String newTime)
 	{
 		//theUser.getMyCalender().setReminder();
 	}
 
-	public void removeReminder(String eventName){
-		theUser.getMyCalender().removeReminder();
+	public void removeReminder(String start, String end){
+		//theUser.getMyCalender().removeReminder();
 	}
 	
 	public void printToFile()
