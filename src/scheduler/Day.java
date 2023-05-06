@@ -38,11 +38,11 @@ public class Day {
 		String key= startTime.replace(" ", "") + "-" + endTime.replace(" ", "");
 		if(validateTime(key)==false)
 		{
-			System.out.println("returned false");
+			
 			return false;
 		}
 		
-		this.events.put(key, new Event(startTime,endTime,name));
+		this.events.put(key, new Event(startTime.substring(4),endTime.substring(4),name));
 		return true;
 		
 	}
@@ -104,9 +104,6 @@ public class Day {
 		Event curr = events.get(key);
 		curr.removeReminder();
 	}
-	public HashMap<String,Event> getEvents(){
-		return events;
-	}
 	
 	public void display() 
 	{
@@ -115,19 +112,19 @@ public class Day {
 		Collections.sort(this.keys);
 		for(int i=0;i<this.keys.size();i++)
 		{
-			System.out.println(keys.get(i));
-			System.out.println("\n\n");
-			System.out.println(this.events.get(keys.get(i)).getEventName()+"\nFrom: "+this.events.get(keys.get(i)).getStartTime()+ "\nTo: " + this.events.get(keys.get(i)).getEndTime() );
+			
+			
+			System.out.println(this.events.get(keys.get(i)).getEventName()+"\nFrom: "+this.events.get(keys.get(i)).getStartTime()+ "\nTo: " + this.events.get(keys.get(i)).getEndTime() +"\n");
 		}
 	}
 	
 	private boolean validateTime(String key)
 	{
 		
-		System.out.println(key);
+	
 		key=key.replace("[", "");
 		key=key.replace("]", "");
-		System.out.println(key);
+		
 		//if the identical key is there, return false
 		if(this.events.containsKey(key))
 		{
