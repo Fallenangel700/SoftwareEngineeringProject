@@ -209,12 +209,12 @@ public class Controller
 					theUser.getLists().get(match).display();
 					System.out.print("Enter task number to delete: ");
 					taskNum = keyboard.nextInt();
-					while(taskNum > theUser.getLists().get(match).getSize())
+					while(taskNum > theUser.getLists().get(match).listedTasks.size())
 					{
 						System.out.print("Input invalid. Please enter a task number to delete: ");
 						input = keyboard.nextLine();
 					}
-					theUser.getLists().get(match).removeTask(theUser.getLists().get(match).getTask(taskNum));
+					theUser.getLists().get(match).removeTask(theUser.getLists().get(match).listedTasks.get(taskNum-1));
 				}
 				else
 					finished = true;
