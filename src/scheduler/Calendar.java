@@ -99,7 +99,26 @@ public class Calendar {
 		this.calendar.get(key.substring(0,4)).editEvent(key, newName, newStartTime, newEndTime);
 	}
 	
+	public void duplicateEvent(String name, String newStartTime,String newEndTime)
+	{
+		if(this.eventNames.get(name)!=null)
+		{
+			String key=this.eventNames.get(name);
+			this.addEvent(key, newStartTime, newEndTime);
+		}
+		return;
+		
+	}
 	
+	public void queryFreeTime(String date)
+	{
+		if(this.calendar.get(date)==null)
+		{
+			System.out.println("There are 24 Hours and 0 minutes available.");
+			return;
+		}
+		this.calendar.get(date).queryFreeTime();
+	}
 	/*
 	this endtime  string would be enough to make sure there is nothing that this event overlaps. it should create a string in the key format for endtime and then check all
     the keys between those times and if there are no keys inbetween those times it returns true
