@@ -54,7 +54,7 @@ public class main {
 					input = -1;
 				}			
 			}
-
+			keyboard.nextLine();
 			if(input == 1)
 			{
 				boolean isLoggedIn = false;
@@ -84,7 +84,7 @@ public class main {
 						
 		}
 		
-		while(input != 19)
+		while(input != 20)
 		{
 			System.out.println("Please pick one of the following: \n");
 
@@ -93,7 +93,7 @@ public class main {
 			System.out.println("2: Add Event to Calender");
 			System.out.println("3: Edit Event in Calender");
 			System.out.println("4: Remove Event from Calender");
-			System.out.println("5: Edit Event in Calender");
+			System.out.println("5: Duplicate Event in Calender");
 			System.out.println("6: Display To-Do List");
 			System.out.println("7: Create new To-Do List");
 			System.out.println("8: Edit To-Do List");
@@ -145,9 +145,8 @@ public class main {
 					input = -1;
 				}			
 			}
-			
 			System.out.print("\n");
-			
+			keyboard.nextLine();
 			////////////////////////////////////////////////////////////////////
 			//View Calender
 			if(input == 1)
@@ -198,9 +197,23 @@ public class main {
 				
 				theControl.removeEvent(name);
 			}
+			//Duplicating Event
+			else if(input == 5)
+			{
+				System.out.println("Duplicating Event to Calender. ");
+				System.out.println("Enter event name: ");
+				name = keyboard.nextLine();
+				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Enter event start time in: ");
+				start = keyboard.nextLine();
+				System.out.println("Enter event end time: ");
+				end = keyboard.nextLine();
+				
+				theControl.addEvent(name, start, end);
+			}
 			////////////////////////////////////////////////////////////////////
 			//Display the TO-DO lists
-			else if(input == 5)
+			else if(input == 6)
 			{
 				System.out.println("Displaying To-Do Lists. ");
 				
@@ -209,7 +222,7 @@ public class main {
 			
 			////////////////////////////////////////////////////////////////////
 			//Create new TO-DO list
-			else if(input == 6)
+			else if(input == 7)
 			{
 				System.out.println("Making a new To-Do Lists. ");
 				System.out.println("Enter new List name: ");
@@ -219,7 +232,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Edit the TO-DO lists
-			else if(input == 7)
+			else if(input == 8)
 			{
 				System.out.println("Editing To-Do Lists. ");
 				System.out.println("Enter List name: ");
@@ -229,7 +242,7 @@ public class main {
 			}			
 			////////////////////////////////////////////////////////////////////
 			//Delete TO-DO list
-			else if(input == 8)
+			else if(input == 9)
 			{
 				System.out.println("Deleteing To-Do List. ");
 				theControl.displayLists();
@@ -241,7 +254,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Add task to TO-DO list
-			else if(input == 9)
+			else if(input == 10)
 			{
 				System.out.println("Adding New Task to a To-Do List. ");
 				System.out.println("Enter List name: ");
@@ -252,7 +265,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Edit task in TO-DO list
-			else if(input == 10)
+			else if(input == 11)
 			{
 				System.out.println("Editing Task in a To-Do List. ");
 				System.out.println("Enter List name: ");
@@ -261,7 +274,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//delete task in TO-DO list
-			else if(input == 11)
+			else if(input == 12)
 			{
 				System.out.println("Deleting Task in a To-Do List. ");
 				System.out.println("Enter List name: ");
@@ -272,7 +285,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Add Task from To-Do List to Calendar
-			else if(input == 12)
+			else if(input == 13)
 			{
 				System.out.println("Adding a task from a To-Do List to the Calendar.");
 				System.out.println("Enter List name: ");
@@ -296,7 +309,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Add Reminder
-			else if(input == 13)
+			else if(input == 14)
 			{
 				System.out.println("Setting a reminder for an event. ");
 				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
@@ -310,7 +323,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Edit Reminder
-			else if(input == 14)
+			else if(input == 15)
 			{
 				System.out.println("Editing a reminder for an event. ");
 				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
@@ -324,7 +337,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Delete Reminder
-			else if(input == 15)
+			else if(input == 16)
 			{
 				System.out.println("Removing a reminder for an event. ");
 				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
@@ -336,7 +349,7 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Print to file
-			else if(input == 16)
+			else if(input == 17)
 			{
 				System.out.println("Printing to file. ");
 				System.out.println("Where would you like the file? Ex: C:\\Users\\tyler\\Downloads");
@@ -345,21 +358,21 @@ public class main {
 			}
 			////////////////////////////////////////////////////////////////////
 			//Edit Profile
-			else if(input == 17)
+			else if(input == 18)
 			{
 				System.out.println("Editing Profile. ");
 				theControl.editProfile();
 			}
 			////////////////////////////////////////////////////////////////////
 			//Delete Profile
-			else if(input == 18)
+			else if(input == 19)
 			{
 				boolean out = theControl.deleteProfile();
 				if(out == true)
-					input = 14;
+					input = 20;
 			}
 			////////////////////////////////////////////////////////////////////
-			else if(input == 19)
+			else if(input == 20)
 			{
 				//nothing, this ends the program.
 			}

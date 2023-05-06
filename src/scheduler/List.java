@@ -8,9 +8,10 @@ public class List {
 	
 	LinkedList <Task> listedTasks;
 	private String listName;
-	public List()
+	public List(String name)
 	{
 		this.listedTasks = new LinkedList <Task>();
+		this.listName = name;
 	}
 	
 	public void addTask(Task newTask)
@@ -34,22 +35,24 @@ public class List {
 	{
 		//TO-DO add input validation
 		int targetTask;
-		Scanner input = new Scanner(System.in);
+		Scanner keyboard = new Scanner(System.in);
 		
 		display();
 		System.out.println("Please input task number to edit: ");
-		targetTask = input.nextInt();
-		
+		targetTask = keyboard.nextInt();
+		keyboard.nextLine();
+
 		System.out.println("Please input new task name: ");
-		this.listedTasks.get(targetTask - 1).changeName(input.nextLine());
+		this.listedTasks.get(targetTask).changeName(keyboard.nextLine());
 		
 		
 		
 		System.out.println("Please input new task details: ");
-		this.listedTasks.get(targetTask - 1).changeDetails(input.nextLine());
+		this.listedTasks.get(targetTask).changeDetails(keyboard.nextLine());
 		
 		System.out.println("Task has been updated to: Name: " + this.listedTasks.get(targetTask).getName() + " Details: " + this.listedTasks.get(targetTask).getDetails());
-		input.close();
+		//keyboard.close();
+		//closing the keyboard here crashes the program for some reason. :(
 
 	}
 	
