@@ -88,7 +88,13 @@ public class Day {
 		}
 		return false;
 	}
-
+	
+	public void duplicateEvent(String key, String newStartTime,String newEndTime)
+	{
+		this.addEvent(newStartTime, newEndTime, key);
+	}
+	
+	
 	public void addReminder(String start, String end, String time){
 		String key= start.replace(" ", "") + "-" + end.replace(" ", "");
 		Event curr = events.get(key);
@@ -189,7 +195,10 @@ public class Day {
 		//if all of these pass, we return true
 		return true;
 	}
-			
+		public Event getEvent(String key)
+		{
+			return this.events.get(key);
+		}
 		
 		private boolean validate24HTime(int hour, int minute)
 		{
