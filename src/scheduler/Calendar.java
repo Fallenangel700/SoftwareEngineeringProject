@@ -109,6 +109,16 @@ public class Calendar {
 		return;
 		
 	}
+	
+	public void queryFreeTime(String date)
+	{
+		if(this.calendar.get(date)==null)
+		{
+			System.out.println("There are 24 Hours and 0 minutes available.");
+			return;
+		}
+		this.calendar.get(date).queryFreeTime();
+	}
 	/*
 	this endtime  string would be enough to make sure there is nothing that this event overlaps. it should create a string in the key format for endtime and then check all
     the keys between those times and if there are no keys inbetween those times it returns true

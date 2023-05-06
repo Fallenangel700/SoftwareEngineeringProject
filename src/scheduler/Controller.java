@@ -167,6 +167,11 @@ public class Controller
 		}
 	}
 	
+	public void queryFreeTime(String date)
+	{
+		this.theUser.getMyCalender().queryFreeTime(date);
+	}
+	
 	public void createList(String listName)
 	{
 		List temp = new List(listName);
