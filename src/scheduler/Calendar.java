@@ -27,8 +27,9 @@ public class Calendar {
 	public void display()
 	{
 		Collections.sort(this.keys);
-		System.out.println(keys.toString());
-		for(int i=0;i<keys.size();i++)
+		
+		
+		for(int i=0;i<this.calendar.size();i++)
 		{
 			String day=keys.get(i).substring(0,2) + "/" + keys.get(i).substring(2,4);
 			System.out.println(day+":\n");
@@ -47,22 +48,24 @@ public class Calendar {
 		
 		if(validateTime(key)==false)
 		{
-			System.out.println("False");
+			
 			return false;
 		}
+		if(this.calendar.containsKey(dayKey)==false)
+		{
+			this.addDay(dayKey);
+		}
+		
 		if(this.calendar.get(dayKey).addEvent(startTime,endTime,name)==true)
 		{
 			this.eventNames.put(name, key);
 			this.keys.add(key);
-			if(this.calendar.containsKey(dayKey)==false)
-			{
-				this.addDay(dayKey);
-			}
+		
 			
-			System.out.println("TRUE");
+			
 			return true;
 		}
-		System.out.println("FALSE2");
+		
 		return false;
 		//need to validate the time within the day class and validate the day. 
 		
@@ -78,7 +81,7 @@ public class Calendar {
 			return;
 		}
 		
-		if(this.calendar.get(removeKey.substring(0,4)).removeEvent(name)==true)
+		if(this.calendar.get(removeKey.substring(0,4)).removeEvent(removeKey)==true)
 		{
 			this.keys.remove(removeKey);
 			this.eventNames.remove(name);
@@ -222,10 +225,6 @@ public class Calendar {
 		String dayKey=key.substring(0,4);
 		Day curr = calendar.get(dayKey);
 		curr.removeReminder(start,end);
-	}
-
-	public String getEventName(String key){
-		return eventNames.get(key);
 	}
 	
 
