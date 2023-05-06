@@ -44,11 +44,13 @@ public class PrintToFile
             for(int j = 0; j<events.length;j++){
                 holder = currEvents.get(events[j]);
                 System.out.println(holder.getEventName() + ":\n" + holder.getStartTime() + " til " + holder.getEndTime());
-                if(holder.getReminderTime() != -1){
+                if(holder.getReminderTime() != -1)
+                {
                     System.out.println("With a reminder " + holder.getReminderTime() + " before");
                 }
                 System.out.println("\n");
             }
+        
         }
 
 
