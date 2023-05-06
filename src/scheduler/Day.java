@@ -221,9 +221,9 @@ public class Day {
 		//if all of these pass, we return true
 		return true;
 	}
-		public Event getEvents(String key)
+		public HashMap <String,Event> getEvents()
 		{
-			return this.events.get(key);
+			return this.events;
 		}
 		
 		private boolean validate24HTime(int hour, int minute)
