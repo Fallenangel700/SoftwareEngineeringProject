@@ -148,6 +148,8 @@ public class Controller
 		theUser.getMyCalender().removeEvent( name);
 	}
 	
+	public void duplicateEvent()
+	
 	public void displayLists()
 	{
 		//for(int x = 0; x < theUser.getLists().length; x++)

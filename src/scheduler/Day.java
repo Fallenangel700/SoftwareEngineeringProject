@@ -3,6 +3,7 @@ package scheduler;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 
 
@@ -37,9 +38,10 @@ public class Day {
 		String key= startTime.replace(" ", "") + "-" + endTime.replace(" ", "");
 		if(validateTime(key)==false)
 		{
+			System.out.println("returned false");
 			return false;
 		}
-		this.keys.add(key);
+		
 		this.events.put(key, new Event(startTime,endTime,name));
 		return true;
 		
@@ -60,6 +62,17 @@ public class Day {
 		return false;
 	}
 	
+	
+	/*
+	 * Checks if the key is in the day. Removes it from the map if so, and calls addEvent.
+	 * If addEvent returns true it replaces the old event. If false old event if put back in.
+	 * @param key A string that is the key for the event that is to be edited.
+	 * @param newName A string that is the new name for the event
+	 * @param newStartTime A string that is the new start time for the event
+	 * @param newEndTime A string that is the new end time for the event.
+	 * 
+	 * @return true if the edit is valid.
+	 */
 	public boolean editEvent(String key,String newName,String newStartTime,String newEndTime)
 	{
 		Event eventHolder;
@@ -92,15 +105,26 @@ public class Day {
 		curr.removeReminder();
 	}
 	
-	public String display() 
+	public void display() 
 	{
+		
 		// TODO Auto-generated method stub
-		return "";
+		Collections.sort(this.keys);
+		for(int i=0;i<this.keys.size();i++)
+		{
+			System.out.println(keys.get(i));
+			System.out.println("\n\n");
+			System.out.println(this.events.get(keys.get(i)).getEventName()+"\nFrom: "+this.events.get(keys.get(i)).getStartTime()+ "\nTo: " + this.events.get(keys.get(i)).getEndTime() );
+		}
 	}
 	
 	private boolean validateTime(String key)
 	{
 		
+		System.out.println(key);
+		key=key.replace("[", "");
+		key=key.replace("]", "");
+		System.out.println(key);
 		//if the identical key is there, return false
 		if(this.events.containsKey(key))
 		{
@@ -115,9 +139,10 @@ public class Day {
 		
 		int indexOfKey=0;
 		keys.add(key);
-		String [] arr= (String[]) keys.toArray();
-		Arrays.sort(arr);
+		Collections.sort(keys);
+		indexOfKey=keys.indexOf(key);
 		//putting the keys into a sorted array will show me the event before and after our desired scheduled time
+		/*
 		for(int i=0; i<arr.length;i++)
 		{
 			if(arr[i].equals(key))
@@ -126,7 +151,7 @@ public class Day {
 				break;
 			}
 		}
-		
+		*/
 		if(indexOfKey==0)
 		{
 			if(validateMonthAndDay(startTime,endTime)==false)
@@ -140,7 +165,9 @@ public class Day {
 		//need to check that the end time of the previous event does not exceed the start time of the new event
 		if(indexOfKey>0)
 		{
-			String endTimeOfPrev=arr[indexOfKey-1].substring(13);
+			String endTimeOfPrev=keys.get(indexOfKey-1).substring(9);
+			endTimeOfPrev=endTimeOfPrev.replace("[", "");
+			endTimeOfPrev=endTimeOfPrev.replace("]", "");
 			if(validateMonthAndDay(endTimeOfPrev,startTime)==false)
 			{
 				keys.remove(key);
@@ -149,9 +176,10 @@ public class Day {
 		}
 	
 		//checking that the end time of the new event is not after the start time of the next event
-		if(arr.length>=indexOfKey + 1)
+		if(keys.size()>(indexOfKey+1))
 		{
-			String startOfNext=arr[indexOfKey + 1].substring(3,8);
+			String startOfNext=keys.get(indexOfKey+1).substring(0,8);
+			
 			if(validateMonthAndDay(endTime, startOfNext)==false)
 			{
 				keys.remove(key);
