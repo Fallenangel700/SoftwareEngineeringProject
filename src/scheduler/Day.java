@@ -1,8 +1,8 @@
 package scheduler;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+//import java.util.Arrays;
+//import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 
@@ -92,6 +92,32 @@ public class Day {
 	public void duplicateEvent(String key, String newStartTime,String newEndTime)
 	{
 		this.addEvent(newStartTime, newEndTime, key);
+	}
+	
+	public void queryFreeTime()
+	{
+		int sum=24*60;
+		
+		
+		
+		
+		for(int i=0; i<this.keys.size();i++)
+		{
+			//int hourSum=0;
+			//int minuteSum=0;
+			
+			int hour=Integer.parseInt(this.keys.get(i).substring(4,6));
+			int minute=Integer.parseInt(this.keys.get(i).substring(6,8));
+			int endHour=Integer.parseInt(this.keys.get(i).substring(13,15));
+			int endMinute=Integer.parseInt(this.keys.get(i).substring(15,17));
+			
+			sum= sum-((endHour-hour)*60);
+			sum=sum-(endMinute-minute);
+		}
+		int hours=sum/60;
+		int minutes=sum%60;
+		System.out.println("There are " + hours + (" hours and " + minutes + " minutes available."));
+		return;
 	}
 	
 	
@@ -195,7 +221,7 @@ public class Day {
 		//if all of these pass, we return true
 		return true;
 	}
-		public Event getEvent(String key)
+		public Event getEvents(String key)
 		{
 			return this.events.get(key);
 		}

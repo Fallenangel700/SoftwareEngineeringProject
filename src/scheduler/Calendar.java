@@ -2,8 +2,8 @@ package scheduler;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+//import java.util.Arrays;
+//import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 
@@ -74,7 +74,7 @@ public class Calendar {
 	
 	public void removeEvent(String name)
 	{
-		String dateKey;
+		//String dateKey;
 		String removeKey= this.eventNames.get(name);
 		if(removeKey==null)
 		{
@@ -108,6 +108,16 @@ public class Calendar {
 		}
 		return;
 		
+	}
+	
+	public void queryFreeTime(String date)
+	{
+		if(this.calendar.get(date)==null)
+		{
+			System.out.println("There are 24 Hours and 0 minutes available.");
+			return;
+		}
+		this.calendar.get(date).queryFreeTime();
 	}
 	/*
 	this endtime  string would be enough to make sure there is nothing that this event overlaps. it should create a string in the key format for endtime and then check all

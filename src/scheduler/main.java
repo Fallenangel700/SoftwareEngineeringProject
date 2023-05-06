@@ -162,7 +162,7 @@ public class main {
 				System.out.println("Adding New Event to Calender. ");
 				System.out.println("Enter event name: ");
 				name = keyboard.nextLine();
-				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Time must be in MM DD 24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
 				System.out.println("Enter event start time in: ");
 				start = keyboard.nextLine();
 				System.out.println("Enter event end time: ");
@@ -179,7 +179,7 @@ public class main {
 				name = keyboard.nextLine();
 				System.out.println("Enter new event name: ");
 				name2 = keyboard.nextLine();
-				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Time must be in MM DD 24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
 				System.out.println("Enter new event start time in: ");
 				start = keyboard.nextLine();
 				System.out.println("Enter new event end time: ");
@@ -203,7 +203,7 @@ public class main {
 				System.out.println("Duplicating Event to Calender. ");
 				System.out.println("Enter event name: ");
 				name = keyboard.nextLine();
-				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Time must be in MM DD 24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
 				System.out.println("Enter event start time in: ");
 				start = keyboard.nextLine();
 				System.out.println("Enter event end time: ");
@@ -293,7 +293,7 @@ public class main {
 				System.out.println("Enter Task name: ");
 				name2 = keyboard.nextLine();	
 				System.out.println("When do you want the event?");
-				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Time must be in MM DD 24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
 				System.out.println("Enter new event start time in: ");
 				start = keyboard.nextLine();
 				System.out.println("Enter new event end time: ");
@@ -312,7 +312,7 @@ public class main {
 			else if(input == 14)
 			{
 				System.out.println("Setting a reminder for an event. ");
-				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Time must be in MM DD 24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
 				System.out.println("Enter event start time in: ");
 				start = keyboard.nextLine();
 				System.out.println("Enter event end time: ");
@@ -326,7 +326,7 @@ public class main {
 			else if(input == 15)
 			{
 				System.out.println("Editing a reminder for an event. ");
-				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Time must be in MM DD 24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
 				System.out.println("Enter event start time in: ");
 				start = keyboard.nextLine();
 				System.out.println("Enter event end time: ");
@@ -340,7 +340,7 @@ public class main {
 			else if(input == 16)
 			{
 				System.out.println("Removing a reminder for an event. ");
-				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Time must be in MM DD 24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
 				System.out.println("Enter event start time in: ");
 				start = keyboard.nextLine();
 				System.out.println("Enter event end time: ");

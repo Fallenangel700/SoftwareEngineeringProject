@@ -87,6 +87,11 @@ public class Controller
 		}
 	}
 	
+	public void queryFreeTime(String date)
+	{
+		this.theUser.getMyCalender().queryFreeTime(date);
+	}
+	
 	public void createList(String listName)
 	{
 		List temp = new List(listName);
@@ -214,8 +219,7 @@ public class Controller
 		}
 		if(match != -1)
 		{
-			Task temp = new Task(taskName);
-			theUser.lists.get(match).removeTask(temp);
+			theUser.lists.get(match).removeTask(taskName);
 		}
 		else
 			System.out.println("List not found.");
