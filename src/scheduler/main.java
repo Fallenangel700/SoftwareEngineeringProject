@@ -129,7 +129,7 @@ public class main {
 			while (input == -1)
 			{
 				System.out.println("\nThat is not a valid choice. Please try again.");
-				System.out.print("Enter a number between 1 and 15 :");
+				System.out.print("Enter a number between 1 and 19 :");
 				choice = keyboard.next();
 				try
 				{
@@ -139,7 +139,7 @@ public class main {
 				{
 					input = -1;
 				}
-				if (input < 1 || input > 12)
+				if (input < 1 || input > 19)
 				{
 					input = -1;
 				}			
@@ -273,10 +273,25 @@ public class main {
 			//Add Task from To-Do List to Calendar
 			else if(input == 12)
 			{
-				System.out.println("Adding Task to Calendar. ");
+				System.out.println("Adding a task from a To-Do List to the Calendar.");
+				System.out.println("Enter List name: ");
+				name = keyboard.nextLine();	
 				System.out.println("Enter Task name: ");
-				name = keyboard.nextLine();			
-				theControl.setReminder(name);
+				name2 = keyboard.nextLine();	
+				System.out.println("When do you want the event?");
+				System.out.println("Time must be in DDMM24HR. Example: 01 10 1300 for October 1st at 1 pm. ");
+				System.out.println("Enter new event start time in: ");
+				start = keyboard.nextLine();
+				System.out.println("Enter new event end time: ");
+				end = keyboard.nextLine();
+				
+				if(theControl.getTask(name,name2) != null)
+					theControl.addEvent(name2, start, end);
+				else{
+					System.out.println("Invalid Task/list");
+				}
+
+
 			}
 			////////////////////////////////////////////////////////////////////
 			//Add Reminder
@@ -323,7 +338,9 @@ public class main {
 			else if(input == 16)
 			{
 				System.out.println("Printing to file. ");
-				theControl.printToFile();
+				System.out.println("Where would you like the file? Ex: C:\\Users\\tyler\\Downloads");
+				String directory = keyboard.nextLine();
+				theControl.printToFile(directory);
 			}
 			////////////////////////////////////////////////////////////////////
 			//Edit Profile

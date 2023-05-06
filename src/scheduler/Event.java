@@ -83,6 +83,8 @@ public class Event
 
 	public int getReminderTime()
 	{
+		if (this.eventReminder == null)
+			return -1;
 		return this.eventReminder.getReminderTime();
 	}
 	

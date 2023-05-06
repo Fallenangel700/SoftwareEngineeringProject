@@ -104,6 +104,9 @@ public class Day {
 		Event curr = events.get(key);
 		curr.removeReminder();
 	}
+	public HashMap<String,Event> getEvents(){
+		return events;
+	}
 	
 	public void display() 
 	{

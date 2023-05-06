@@ -211,12 +211,12 @@ public class Controller
 					theUser.getLists().get(match).display();
 					System.out.print("Enter task number to delete: ");
 					taskNum = keyboard.nextInt();
-					while(taskNum > theUser.getLists().get(match).getSize())
+					while(taskNum > theUser.getLists().get(match).listedTasks.size())
 					{
 						System.out.print("Input invalid. Please enter a task number to delete: ");
 						input = keyboard.nextLine();
 					}
-					theUser.getLists().get(match).removeTask(theUser.getLists().get(match).getTask(taskNum));
+					theUser.getLists().get(match).removeTask(theUser.getLists().get(match).listedTasks.get(taskNum-1));
 				}
 				else
 					finished = true;
@@ -302,6 +302,23 @@ public class Controller
 		else
 			System.out.println("List not found.");
 	}
+	public Task getTask(String listName, String name){
+		int match = -1; 
+		for(int x = 0; x < theUser.getLists().size(); x++)
+		{
+			if(theUser.getLists().get(x).getListName().equalsIgnoreCase(listName))
+			{
+				match = x;
+				break;
+			}
+		}
+		if(match != -1)
+		{
+			return theUser.getLists().get(match).getTask(name);
+		}
+		else
+			return null;
+	}
 
 	public void addReminder(String start, String end, String time){
 		theUser.getMyCalender().addReminder(start, end, time);
@@ -316,9 +333,14 @@ public class Controller
 		theUser.getMyCalender().removeReminder(start, end);
 	}
 	
-	public void printToFile()
+	public void printToFile(String directory)
 	{
-		//theUser.getMyCalender().printToFile();
+		PrintToFile printer = new PrintToFile(theUser.getMyCalender());
+		try{
+			printer.printCal(directory);
+		} catch(Exception e){
+			System.out.println("invalid directory");
+		}
 	}
 
 	public void editProfile()

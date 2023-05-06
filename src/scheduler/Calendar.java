@@ -223,6 +223,10 @@ public class Calendar {
 		Day curr = calendar.get(dayKey);
 		curr.removeReminder(start,end);
 	}
+
+	public String getEventName(String key){
+		return eventNames.get(key);
+	}
 	
 
 }
