@@ -93,22 +93,23 @@ public class main {
 			System.out.println("2: Add Event to Calender");
 			System.out.println("3: Edit Event in Calender");
 			System.out.println("4: Remove Event from Calender");
-			System.out.println("5: Display To-Do List");
-			System.out.println("6: Create new To-Do List");
-			System.out.println("7: Edit To-Do List");
-			System.out.println("8: Delete To-Do List");
-			System.out.println("9: Add Task to To-Do List");
-			System.out.println("10: Edit Task from To-Do List");
-			System.out.println("11: Remove Task from To-Do List");
-			System.out.println("12: Add Task From To-Do List to Calendar");
-			System.out.println("13: Add Reminder for Event");
-			System.out.println("14: Edit Reminder for Event");
-			System.out.println("15: Remove Reminder for Event");
-			System.out.println("16: Print Calender to file");
-			System.out.println("17: Edit Profile");
-			System.out.println("18: Delete Profile");
+			System.out.println("5: Edit Event in Calender");
+			System.out.println("6: Display To-Do List");
+			System.out.println("7: Create new To-Do List");
+			System.out.println("8: Edit To-Do List");
+			System.out.println("9: Delete To-Do List");
+			System.out.println("10: Add Task to To-Do List");
+			System.out.println("11: Edit Task from To-Do List");
+			System.out.println("12: Remove Task from To-Do List");
+			System.out.println("13: Add Task From To-Do List to Calendar");
+			System.out.println("14: Add Reminder for Event");
+			System.out.println("15: Edit Reminder for Event");
+			System.out.println("16: Remove Reminder for Event");
+			System.out.println("17: Print Calender to file");
+			System.out.println("18: Edit Profile");
+			System.out.println("19: Delete Profile");
 
-			System.out.println("19: Exit");
+			System.out.println("20: Exit");
 
 			////////////////////////////////////////////////////////////////////
 			//Get and validate input
@@ -139,7 +140,7 @@ public class main {
 				{
 					input = -1;
 				}
-				if (input < 1 || input > 19)
+				if (input < 1 || input > 20)
 				{
 					input = -1;
 				}			
