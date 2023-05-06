@@ -1,8 +1,8 @@
 package scheduler;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+//import java.util.Arrays;
+//import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 
@@ -103,8 +103,8 @@ public class Day {
 		
 		for(int i=0; i<this.keys.size();i++)
 		{
-			int hourSum=0;
-			int minuteSum=0;
+			//int hourSum=0;
+			//int minuteSum=0;
 			
 			int hour=Integer.parseInt(this.keys.get(i).substring(4,6));
 			int minute=Integer.parseInt(this.keys.get(i).substring(6,8));
