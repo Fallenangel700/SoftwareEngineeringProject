@@ -19,11 +19,24 @@ public class List {
 		this.listedTasks.add(newTask);
 	}
 	
+	public void removeTask(String completedTask)
+	{
+		for(int x = 0; x < listedTasks.size(); x++)
+		{
+			if(listedTasks.get(x).getName().equalsIgnoreCase(completedTask))
+			{
+				this.listedTasks.remove(this.listedTasks.get(x));
+			}
+		}
+	}
+	
 	public void removeTask(Task completedTask)
 	{
-		this.listedTasks.remove(completedTask);
-	}
 
+		this.listedTasks.remove(completedTask);
+
+	}
+	
 	public Task getTask(String taskName){
 		for(Task temp: listedTasks)
 			if(temp.getName().equals(taskName))

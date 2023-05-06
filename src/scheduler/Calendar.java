@@ -74,7 +74,7 @@ public class Calendar {
 	
 	public void removeEvent(String name)
 	{
-		String dateKey;
+		//String dateKey;
 		String removeKey= this.eventNames.get(name);
 		if(removeKey==null)
 		{

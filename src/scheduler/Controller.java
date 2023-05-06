@@ -287,8 +287,7 @@ public class Controller
 		}
 		if(match != -1)
 		{
-			Task temp = new Task(taskName);
-			theUser.lists.get(match).removeTask(temp);
+			theUser.lists.get(match).removeTask(taskName);
 		}
 		else
 			System.out.println("List not found.");
