@@ -4,6 +4,7 @@ package scheduler;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Calendar {
@@ -20,13 +21,19 @@ public class Calendar {
 	{
 		calendar= new HashMap<String,Day>();
 		keys= new ArrayList<String>();
+		this.eventNames=new HashMap<String,String>();
 	}
 	
 	public void display()
 	{
-		Object [] arr=keys.toArray();
-		Arrays.sort(arr);
-		calendar.forEach((key,value) -> System.out.println("Day: " + key + "\n" + value.display()));
+		Collections.sort(this.keys);
+		System.out.println(keys.toString());
+		for(int i=0;i<keys.size();i++)
+		{
+			String day=keys.get(i).substring(0,2) + "/" + keys.get(i).substring(2,4);
+			System.out.println(day+":\n");
+			this.calendar.get(keys.get(i).substring(0,4)).display();
+		}
 	
 	}
 	
@@ -40,15 +47,22 @@ public class Calendar {
 		
 		if(validateTime(key)==false)
 		{
+			System.out.println("False");
 			return false;
 		}
 		if(this.calendar.get(dayKey).addEvent(startTime,endTime,name)==true)
 		{
 			this.eventNames.put(name, key);
 			this.keys.add(key);
+			if(this.calendar.containsKey(dayKey)==false)
+			{
+				this.addDay(dayKey);
+			}
 			
+			System.out.println("TRUE");
 			return true;
 		}
+		System.out.println("FALSE2");
 		return false;
 		//need to validate the time within the day class and validate the day. 
 		
@@ -75,6 +89,11 @@ public class Calendar {
 	public void editEvent(String oldName,String newName,String newStartTime,String newEndTime)
 	{
 		String key=this.eventNames.get(oldName);
+		if(key==null)
+		{
+			return;
+		}
+		this.calendar.get(key.substring(0,4)).editEvent(key, newName, newStartTime, newEndTime);
 	}
 	
 	
