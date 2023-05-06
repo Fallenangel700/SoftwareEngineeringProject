@@ -12,7 +12,7 @@ public class ListTest {
     @Before
     public void before()
     {
-        list = new List();
+        list = new List("test");
         test = new Task("Testing");
     }
 

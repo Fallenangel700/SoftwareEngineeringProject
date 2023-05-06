@@ -3,15 +3,19 @@ package scheduler;
  * 
  */
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Controller 
 {
 	private Profile theUser = null;
-	private Profile[] accounts;
+	//private Profile[] accounts;
+	Vector<Profile> accounts = new Vector<Profile>(1);
+	
+	
 	
 	public Controller()
 	{
-		accounts = new Profile[0];
+		//accounts = new Profile[0];
 	}
 
 	public void setTheUser(Profile user)
@@ -27,12 +31,12 @@ public class Controller
 	public boolean signIn(String username, String password)
 	{
 		boolean match = false;
-		for(int x = 0; x < accounts.length; x++)
+		for(int x = 0; x < accounts.size(); x++)
 		{
-			if(accounts[x].getName() == username && accounts[x].checkPass(password))
+			if(accounts.get(x).getName() == username && accounts.get(x).checkPass(password))
 			{
 				match = true;
-				setTheUser(accounts[x]);
+				setTheUser(accounts.get(x));
 			}
 		}
 		if(match == false)
@@ -45,11 +49,12 @@ public class Controller
 	public void addNewProfile(String username, String password)
 	{
 		Profile newProfile = new Profile(username, password);
-		Profile newAccounts[] = new Profile[accounts.length+1];
-		for(int i = 0; i < accounts.length; i++)
-			newAccounts[i] = accounts[i];
-		newAccounts[accounts.length+1] = newProfile;
-		accounts = newAccounts;
+		//Profile newAccounts[] = new Profile[accounts.length+1];
+		//for(int i = 0; i < accounts.length; i++)
+		//	newAccounts[i] = accounts[i];
+		//newAccounts[accounts.length+1] = newProfile;
+		//accounts = newAccounts;
+		accounts.add(newProfile);
 		theUser = newProfile;
 	}
 	
@@ -149,19 +154,23 @@ public class Controller
 	}
 	
 	public void duplicateEvent()
+	{
+		
+	}
 	
 	public void displayLists()
 	{
-		//for(int x = 0; x < theUser.getLists().length; x++)
-		//{
-			theUser.getLists().toString();
-		//}
+		for(int x = 0; x < theUser.lists.size(); x++)
+		{
+			System.out.println(theUser.lists.get(x).getListName());
+			theUser.lists.get(x).display();
+		}
 	}
 	
 	public void createList(String listName)
 	{
-		List temp = new List();
-		theUser.getLists().push(temp);
+		List temp = new List(listName);
+		theUser.lists.push(temp);
 	}
 
 	public void editList(String listName)
@@ -183,13 +192,13 @@ public class Controller
 		{
 			System.out.println("Would you like to change your list name? (yes/no)");
 			input = keyboard.nextLine();
-			while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+			while(!input.equalsIgnoreCase("yes") || !input.equalsIgnoreCase("no") )
 			{
 				System.out.println("Input invalid. Please enter yes or no");
 				System.out.println("Would you like to change your list name? (yes/no)");
 				input = keyboard.nextLine();
 			}
-			if(input == "yes" || input == "Yes")
+			if(input.equalsIgnoreCase("yes"))
 			{
 				System.out.println("Please enter the new list name: ");
 				newListName = keyboard.nextLine();
@@ -199,13 +208,13 @@ public class Controller
 			{
 				System.out.println("Would you like to delete a task? (yes/no)");
 				input = keyboard.nextLine();
-				while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+				while(!input.equalsIgnoreCase("yes") || !input.equalsIgnoreCase("no"))
 				{
 					System.out.println("Input invalid. Please enter yes or no");
 					System.out.println("Would you like to delete a task? (yes/no)");
 					input = keyboard.nextLine();
 				}
-				if(input == "yes" || input == "Yes")
+				if(input.equalsIgnoreCase("yes"))
 				{
 					int taskNum;
 					theUser.getLists().get(match).display();
@@ -279,7 +288,7 @@ public class Controller
 		if(match != -1)
 		{
 			Task temp = new Task(taskName);
-			theUser.getLists().get(match).removeTask(temp);
+			theUser.lists.get(match).removeTask(temp);
 		}
 		else
 			System.out.println("List not found.");
@@ -450,12 +459,12 @@ public class Controller
 			}
 			else
 			{
-				Profile[] newAccounts = new Profile[accounts.length - 1];
-				for(int i = 0, k =0; i <accounts.length;i++)
+				Profile[] newAccounts = new Profile[accounts.size() - 1];
+				for(int i = 0, k =0; i <accounts.size();i++)
 				{
-					if(accounts[i] != theUser)
+					if(accounts.get(i) != theUser)
 					{
-						newAccounts[k] = accounts[i];
+						newAccounts[k] = accounts.get(i);
 						k++;
 					}
 				}
