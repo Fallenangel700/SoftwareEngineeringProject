@@ -28,7 +28,7 @@ public class Profile {
 	}
 	public boolean checkPass(String pass)
 	{
-		return this.password == pass;
+		return this.password.equals(pass);
 	}
 
 	public void setName(String name)

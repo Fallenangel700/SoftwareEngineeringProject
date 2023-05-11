@@ -15,7 +15,9 @@ public class Controller
 	
 	public Controller()
 	{
-		//accounts = new Profile[0];
+		Profile newProfile = new Profile("admin", "password");
+		accounts.add(newProfile);
+		accounts.get(0).getMyCalender().addEvent("Presentation","05111000","05111200");
 	}
 
 	public void setTheUser(Profile user)
@@ -33,7 +35,7 @@ public class Controller
 		boolean match = false;
 		for(int x = 0; x < accounts.size(); x++)
 		{
-			if(accounts.get(x).getName() == username && accounts.get(x).checkPass(password))
+			if(accounts.get(x).getName().equals(username) && accounts.get(x).checkPass(password))
 			{
 				match = true;
 				setTheUser(accounts.get(x));
@@ -337,7 +339,7 @@ public class Controller
 				newPassword = keyboard.nextLine();
 				System.out.println("Is the password "+ newPassword + "correct?");
 				input = keyboard.nextLine();
-				while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+				while(!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no"))
 				{
 					System.out.println("Input invalid. Please enter yes or no");
 					System.out.println("Is the password "+ newPassword + "correct?");
@@ -362,13 +364,13 @@ public class Controller
 		int failedAttempts = 0;
 		System.out.println("Are you sure you want to delete your profile? (yes/no)");
 		input = keyboard.nextLine();
-		while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+		while(!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no"))
 		{
 			System.out.println("Input invalid. Please enter yes or no");
 			System.out.println("Are you sure you want to delete your profile? (yes/no)");
 			input = keyboard.nextLine();
 		}
-		if(input == "Yes" || input == "yes")
+		if(input.equalsIgnoreCase("yes"))
 		{
 			System.out.println("Please enter your password: ");
 			password = keyboard.nextLine();
