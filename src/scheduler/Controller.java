@@ -305,12 +305,12 @@ public class Controller
 			{
 				System.out.print("Enter your new username: ");
 				newUsername = keyboard.nextLine();
-				System.out.println("Is the username "+ newUsername + "correct?");
+				System.out.println("Is the username "+ newUsername + " correct?");
 				input = keyboard.nextLine();
 				while(!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no"))
 				{
 					System.out.println("Input invalid. Please enter yes or no");
-					System.out.println("Is the username "+ newUsername + "correct?");
+					System.out.println("Is the username "+ newUsername + " correct?");
 					input = keyboard.nextLine();
 				}
 				if(input.equalsIgnoreCase("yes"))
@@ -335,12 +335,12 @@ public class Controller
 			{
 				System.out.print("Enter your new password: ");
 				newPassword = keyboard.nextLine();
-				System.out.println("Is the password "+ newPassword + "correct?");
+				System.out.println("Is the password "+ newPassword + " correct?");
 				input = keyboard.nextLine();
-				while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+				while(!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no"))
 				{
 					System.out.println("Input invalid. Please enter yes or no");
-					System.out.println("Is the password "+ newPassword + "correct?");
+					System.out.println("Is the password "+ newPassword + " correct?");
 					input = keyboard.nextLine();
 				}
 				if(input.equalsIgnoreCase("yes"))
@@ -350,7 +350,7 @@ public class Controller
 				}
 			}
 		}
-		keyboard.close();
+		//keyboard.close();
 	}
 	
 	public boolean deleteProfile()
@@ -362,13 +362,13 @@ public class Controller
 		int failedAttempts = 0;
 		System.out.println("Are you sure you want to delete your profile? (yes/no)");
 		input = keyboard.nextLine();
-		while(input != "yes" || input != "no" || input != "Yes" || input != "No")
+		while(!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no"))
 		{
 			System.out.println("Input invalid. Please enter yes or no");
 			System.out.println("Are you sure you want to delete your profile? (yes/no)");
 			input = keyboard.nextLine();
 		}
-		if(input == "Yes" || input == "yes")
+		if(input.equalsIgnoreCase("yes"))
 		{
 			System.out.println("Please enter your password: ");
 			password = keyboard.nextLine();
