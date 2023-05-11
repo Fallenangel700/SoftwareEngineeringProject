@@ -15,7 +15,9 @@ public class Controller
 	
 	public Controller()
 	{
-		//accounts = new Profile[0];
+		Profile newProfile = new Profile("admin", "password");
+		accounts.add(newProfile);
+		accounts.get(0).getMyCalender().addEvent("Presentation","05111000","05111200");
 	}
 
 	public void setTheUser(Profile user)
@@ -33,7 +35,7 @@ public class Controller
 		boolean match = false;
 		for(int x = 0; x < accounts.size(); x++)
 		{
-			if(accounts.get(x).getName() == username && accounts.get(x).checkPass(password))
+			if(accounts.get(x).getName().equals(username) && accounts.get(x).checkPass(password))
 			{
 				match = true;
 				setTheUser(accounts.get(x));

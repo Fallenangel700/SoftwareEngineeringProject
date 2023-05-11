@@ -28,14 +28,19 @@ public class Calendar {
 	{
 		Collections.sort(this.keys);
 		
-		
-		for(int i=0;i<this.calendar.size();i++)
+		if(keys.size() > 0)
 		{
-			String day=keys.get(i).substring(0,2) + "/" + keys.get(i).substring(2,4);
-			System.out.println(day+":\n");
-			this.calendar.get(keys.get(i).substring(0,4)).display();
+			for(int i=0;i<this.calendar.size();i++)
+			{	
+				String day=keys.get(i).substring(0,2) + "/" + keys.get(i).substring(2,4);
+				System.out.println(day+":\n");
+				this.calendar.get(keys.get(i).substring(0,4)).display();
+			}
 		}
-	
+		else
+		{
+			System.out.println("No events found in Schedule.");
+		}
 	}
 	
 	public boolean addEvent(String name, String start, String end)
